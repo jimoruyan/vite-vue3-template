@@ -15,6 +15,5 @@ const env = computed(() => store.getters.env)
 let num = 0
 const clickData = () => {
   store.dispatch('setEnv', num++)
-  console.log(store)
 }
 </script>
