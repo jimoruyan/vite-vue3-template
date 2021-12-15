@@ -2,18 +2,19 @@
   <div class="form-search">
     <div v-if="formItem && formItem.length > 0" class="search-table-header">
       <div>
-        <el-form :model="formData" label-position="right">
+        <el-form :inline="true" :model="form" label-width="120px" label-position="right">
           <el-row>
             <el-col v-for="(item, index) in formItem" :key="index" :span="item.width">
               <el-form-item
                 :key="index"
                 :label="item.label"
                 :prop="item.value"
+                style="width:100%"
               >
                 <!-- 下拉 -->
                 <el-select
                   v-if="item.type === 'select'"
-                  :value="formData[item.value]"
+                  v-model="form[item.value]"
                   clearable
                 >
                   <el-option
@@ -26,23 +27,18 @@
                 <!--文本-->
                 <el-input
                   v-if="item.type === 'text'"
-                  :value="formData[item.value]"
+                  v-model="form[item.value]"
                   clearable
-                  :placeholder="`请输入${item.placeholder || ''}`"
+                  placeholder="`请输入${item.placeholder || ''}`"
                 />
               </el-form-item>
             </el-col>
+            <div class="button-list">
+              <el-button @click="emit('searchForm', form)">查询</el-button>
+              <el-button @click="clearData">重置</el-button>
+            </div>
           </el-row>
         </el-form>
-        <!-- 按钮 -->
-        <div>
-          <el-button>查询</el-button>
-          <el-button>重置</el-button>
-          <el-button>
-            <i v-if="formButton === '展开'" class="el-icon-arrow-down" />
-            <i v-if="formButton === '收起'" class="el-icon-arrow-up" />
-          </el-button>
-        </div>
       </div>
     </div>
   </div>
@@ -54,13 +50,29 @@ defineProps({
   formItem: { // 表格数据
     type: Array,
     default: () => []
+  },
+  formData: { // 表格数据
+    type: Object,
+    default: () => {}
   }
-  // formData: { // 表格数据
-  //   type: Object,
-  //   default: () => {}
-  // }
 })
-let formData = reactive({name: '1', age: '1', classes: '1'})
-console.log(proxy.formData, 123)
+const emit = defineEmits(['searchForm', 'clearForm'])
+
+let form = reactive(JSON.parse(JSON.stringify(proxy.formData)))  // form查询数据
+
+const clearData = () => { // 清空搜索栏
+  Object.keys(form).map(key => { form[key] = '' })
+  emit('clearForm')
+}
 </script>
 
+<style scope lang="less">
+.form-search{
+  .el-select{
+    width:100%;
+  }
+  .button-list{
+    margin-left: 120px;
+  }
+}
+</style>

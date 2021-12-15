@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FormSearch :form-item="formItem" :form-data="formData" />
+    <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm" />
     <Table
       :table-head="tableHead"
       :table-data="tableData"
@@ -8,26 +8,21 @@
       :selection="true"
       :setting="true"
       :radio="true"
+      :total="8000"
       @handleView="handleView"
       @handleEdit="handleEdit"
       @handleDelete="handleDelete"
       @onSelectAll="onSelectAll"
       @handleSelectionChange="handleSelectionChange"
+      @paginationChange="paginationChange"
     />
-    <!-- <div v-for="item in state.lists" :key="item.id">
-      <div>{{ item.userId }}</div>
-      <div>{{ item.id }}</div>
-      <div>{{ item.title }}</div>
-      <div>{{ item.body }}</div>
-    </div> -->
   </div>
 </template>
 <script setup>
 import { todos, posts } from '@/api/menu1.js'
 import { reactive, provide} from 'vue'
-import Table from '@/components/table/BaseTable.vue'  // 引入子组件
-import FormSearch from '@/components/form/FormSearch.vue'  // 引入子组件
-// provide('table', '1111')
+import Table from '@/components/Table/BaseTable.vue'  // 引入子组件
+import FormSearch from '@/components/Form/FormSearch.vue'  // 引入子组件
 const formItem = [
   {
     label: '姓名',
@@ -74,7 +69,8 @@ const formItem = [
     ]
   }
 ]
-const formData = reactive({name: '111', age: '111', classes: '1'})
+const formData = reactive({name: '', age: '', classes: ''})
+
 const tableHead = [
   {
     prop: 'index',
@@ -123,7 +119,16 @@ const handleSelectionChange = val => {
 const onSelectAll = val => {
   console.log('全选', val)
 }
+const getList = val => {
+  console.log('查询数据', val)
+}
 
+const clearForm = () => {
+  console.log('清除数据')
+}
+const paginationChange = data => {
+  console.log('页码变化', data)
+}
 // todos().then(res => {
 // })
 // posts().then(res => {

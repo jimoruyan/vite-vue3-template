@@ -20,29 +20,32 @@
         <template v-if="setting" #header>
           <div class="col-setting">
             <span>操作</span>
-            <img src="@/components/image/table/setting.png" title="设置" alt="设置" @click="openDialog">
+            <img src="@/assets/img/table/setting.png" title="设置" alt="设置" @click="openDialog">
           </div>
         </template>
        
         <template #default="scope">
           <div class="handle">
-            <img v-if="operation.indexOf('view') > -1" src="@/components/image/table/check.png" class="view" title="查看" alt="查看" @click="emit('handleView', scope.row)">
-            <img v-if="operation.indexOf('edit') > -1" src="@/components/image/table/edit.png" class="edit" title="编辑" alt="编辑" @click="emit('handleEdit', scope.row)">
-            <img v-if="operation.indexOf('del') > -1" src="@/components/image/table/delete.png" class="del" title="删除" alt="删除" @click="emit('handleDelete', scope.row)">
+            <img v-if="operation.indexOf('view') > -1" src="@/assets/img/table/check.png" class="view" title="查看" alt="查看" @click="emit('handleView', scope.row)">
+            <img v-if="operation.indexOf('edit') > -1" src="@/assets/img/table/edit.png" class="edit" title="编辑" alt="编辑" @click="emit('handleEdit', scope.row)">
+            <img v-if="operation.indexOf('del') > -1" src="@/assets/img/table/delete.png" class="del" title="删除" alt="删除" @click="emit('handleDelete', scope.row)">
           </div>
         </template>
-        
       </el-table-column>
     </el-table>
+    <Pagination
+      :total="total"
+      @pagination="pagination"
+    />
   </div>
 </template>
 <script setup>
 import {  getCurrentInstance, ref  } from 'vue'
+import Pagination from '@/components/Pagination/index.vue'
+
 const { proxy } = getCurrentInstance()
 
-// import { inject } from 'vue'
-// const table = inject('table')
-const emit = defineEmits(['handleView', 'handleEdit', 'handleDelete', 'handleSelectionChange', 'onSelectAll'])
+const emit = defineEmits(['handleView', 'handleEdit', 'handleDelete', 'handleSelectionChange', 'onSelectAll', 'paginationChange'])
 
 
 defineProps({
@@ -64,11 +67,9 @@ defineProps({
       return { pageSize: 1, pageNum: 5 }
     }
   },
-  pageInfo: { // 翻页条件
-    type: Object,
-    default() {
-      return { total: 0 }
-    }
+  total: { // 翻页条件
+    type: Number,
+    default: () => 0
   },
   listLoading: { // 加载
     type: Boolean,
@@ -125,13 +126,16 @@ const onSelectAll = () => {
   if (proxy.radio === true) {
     tableDom.value.clearSelection()
   } else {
-    this.$emit('onSelectAll')
+    emit('onSelectAll')
   }
 }
 const openDialog = () => {
   console.log('设置')
 }
 
+const pagination = data => {
+  emit('paginationChange', data)
+}
 
 </script>
 <style lang="less">
