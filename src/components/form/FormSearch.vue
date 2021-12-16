@@ -29,7 +29,7 @@
                   v-if="item.type === 'text'"
                   v-model="form[item.value]"
                   clearable
-                  placeholder="`请输入${item.placeholder || ''}`"
+                  placeholder="请输入"
                 />
               </el-form-item>
             </el-col>

@@ -5,6 +5,7 @@
       v-loading="listLoading"
       :data="tableData"
       style="width: 100%"
+      :height="tableHeight"
       @selection-change="handleSelectionChange"
       @select-all="onSelectAll"
     >

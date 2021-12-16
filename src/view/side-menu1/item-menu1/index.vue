@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm" />
     <Table
       :table-head="tableHead"
@@ -9,6 +9,8 @@
       :setting="true"
       :radio="true"
       :total="8000"
+      :list-loading="listLoading"
+      table-height="calc(100vh - 240px)"
       @handleView="handleView"
       @handleEdit="handleEdit"
       @handleDelete="handleDelete"
@@ -20,9 +22,9 @@
 </template>
 <script setup>
 import { todos, posts } from '@/api/menu1.js'
-import { reactive, provide} from 'vue'
-import Table from '@/components/Table/BaseTable.vue'  // 引入子组件
-import FormSearch from '@/components/Form/FormSearch.vue'  // 引入子组件
+import {ref, reactive, provide, getCurrentInstance} from 'vue'
+import Table from '@/components/Table/BaseTable.vue'
+import FormSearch from '@/components/Form/FormSearch.vue'
 const formItem = [
   {
     label: '姓名',
@@ -85,25 +87,21 @@ const tableHead = [
     label: '年龄'
   }
 ]
-const tableData = [
-  {
-    index: 1,
-    name: 'wcy',
+const {proxy} = getCurrentInstance()
+
+let listLoading = ref(true)
+const tableData = reactive([])
+for (let i = 0; i < 100; i++) {
+  tableData.push({
+    index: i + 1,
+    name: `wcy${i + 1}`,
     age: 18
-  }, {
-    index: 1,
-    name: 'wcy',
-    age: 18
-  }, {
-    index: 1,
-    name: 'wcy',
-    age: 18
-  }, {
-    index: 1,
-    name: 'wcy',
-    age: 18
-  }
-]
+  })
+  console.log(tableData)
+}
+setTimeout(() => {
+  proxy.listLoading = false
+}, 1000)
 const handleView = row => {
   console.log('查看', row)
 }
@@ -135,3 +133,8 @@ const paginationChange = data => {
 //   state.lists = res
 // })
 </script>
+<style scoped lang="less">
+.container{
+
+}
+</style>
