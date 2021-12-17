@@ -21,8 +21,7 @@
   </div>
 </template>
 <script setup>
-import { todos, posts } from '@/api/menu1.js'
-import {ref, reactive, provide, getCurrentInstance} from 'vue'
+import {ref, reactive } from 'vue'
 import Table from '@/components/Table/BaseTable.vue'
 import FormSearch from '@/components/Form/FormSearch.vue'
 const formItem = [
@@ -87,21 +86,21 @@ const tableHead = [
     label: '年龄'
   }
 ]
-const {proxy} = getCurrentInstance()
 
 let listLoading = ref(true)
 const tableData = reactive([])
-for (let i = 0; i < 100; i++) {
-  tableData.push({
-    index: i + 1,
-    name: `wcy${i + 1}`,
-    age: 18
-  })
-  console.log(tableData)
-}
+
 setTimeout(() => {
-  proxy.listLoading = false
+  for (let i = 0; i < 100; i++) {
+    tableData.push({
+      index: i + 1,
+      name: `wcy${i + 1}`,
+      age: 18
+    })
+  }
+  listLoading.value = false
 }, 1000)
+
 const handleView = row => {
   console.log('查看', row)
 }
@@ -127,14 +126,7 @@ const clearForm = () => {
 const paginationChange = data => {
   console.log('页码变化', data)
 }
-// todos().then(res => {
-// })
-// posts().then(res => {
-//   state.lists = res
-// })
 </script>
 <style scoped lang="less">
-.container{
 
-}
 </style>

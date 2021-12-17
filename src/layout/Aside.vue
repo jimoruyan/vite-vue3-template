@@ -80,7 +80,6 @@ const concatPath = (p_path, c_path = '') => {
 .noScrollBar {
   overflow: hidden;
   overflow-y: scroll;
-  -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -89,10 +88,6 @@ const concatPath = (p_path, c_path = '') => {
 }
 
 .noSelect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
   user-select: none;
 }
 
@@ -100,13 +95,10 @@ const concatPath = (p_path, c_path = '') => {
   box-sizing: border-box;
   height: 100vh;
   display: flex;
-  display: -webkit-flex;
   flex-direction: column;
   background-color: #001529;
   overflow: hidden;
   transition: width 0.3s ease-in-out;
-  -moz-transition: width 0.3s ease-in-out;
-  -webkit-transition: width 0.3s ease-in-out;
   .noSelect;
   .logo {
     height: 56px;
@@ -156,5 +148,19 @@ const concatPath = (p_path, c_path = '') => {
 .el-menu-item.is-active,
 .el-menu--popup .el-menu-item.is-active {
   background-color: #1890ff !important;
+}
+</style>
+<style  lang="less">
+.el-aside{
+ .el-menu--collapse{ // 收起样式
+    .el-sub-menu__title{
+      .el-sub-menu__icon-arrow{
+        display: none;
+      }
+      span{
+        display: none;
+      }
+    }
+  }
 }
 </style>
