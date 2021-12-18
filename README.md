@@ -104,53 +104,7 @@ yarn build:prod
 
 
 # 3 目录结构
-本项目已经为你生成了一个相对完整的开发框架，提供了涵盖中后台开发的各类功能和坑位，下面是整个项目的目录结构。
 
-```bash
-├── build                         // 构建相关
-├── mock                          // 项目mock 模拟数据
-├── public                        // 静态资源
-│   ├── document                  // 此文件夹中放置自己项目的帮助手册 
-│   ├── favicon.ico               // favicon图标
-│   └── index.html                // html模板
-├── src                           // 源代码
-│   ├── app                       // 页面的业务代码，可再分子系统或大模块，如果页面不多也可不分
-│   │   ├── common                // 如果再细分了，common文件夹发通用代码
-│   │   ├── sample                // 示例子模块
-│   │   ├── system-sample         // 一些系统功能示例（未添加）
-│   │   └── empty-need-rename     // 占坑，修改为自己的模块名，具体细分为api，assets，views，components，utils
-│   ├── config                    // 项目配置文件夹，目录结构及文件名不要修改，按照需要再内部添加
-│   │   ├── filters               // vue全局过滤器，新增直接放置在文件下，会自动加载
-│   │   ├── router                // 路由配置定义
-│   │   ├── store                 // vuex配置
-│   │   ├── styles                // 样式定义，可根据需要修改
-│   │   ├── svg-icons             // svg图标资源，可根据项目需要增加
-│   │   ├── app-config.js         // 模板功能需要知道的项目一些配置
-│   │   ├── handler.js            // 自定义通用操作的回调
-│   │   └── ui-config.js          // 界面布局及显示配置
-│   ├── framework                 // 框架代码，一般不需要修改
-│   │   ├── components            // 框架封装的组件
-│   │   ├── directive             // vue指令，包括了按钮权限就是通过指令实现
-│   │   ├── icons                 // svg图标加载实现
-│   │   ├── layout                // 整体布局实现
-│   │   ├── store                 // vuex配置加载
-│   │   ├── styles                // 样式实现
-│   │   ├── utils                 // 工具类库
-│   │   └── common-control.js     // 登录注销操作，业务调用时使用此文件的
-│   ├── vendor                    // 如果需要引入第三方的js库，不通过npm依赖引入，则放到此文件夹中
-│   ├── App.vue                   // 入口页面
-│   ├── env-variable.js           // 环境变量代理文件，为了便于单独提取环境变量文件，使用时引入此文件，不要直接使用环境变量
-│   ├── main.js                   // 入口文件 加载组件 初始化等
-│   └── permission.js             // 权限管理
-├── tests                         // 测试
-├── .env.xxx                      // 环境变量配置
-├── .eslintignore                 // eslint 忽略项
-├── .eslintrc-common.js           // eslint 公司级别规则
-├── .eslintrc.js                  // eslint 项目级别规则，继承了eslintrc-common，主要是添加了vue规则
-├── babel.config.js               // babel 配置
-├── vue.config.js                 // vue-cli 配置
-└── package.json                  // package.json
-```
 
 # 4 Vuex配置（状态存储）
 
