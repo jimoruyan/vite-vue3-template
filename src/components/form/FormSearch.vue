@@ -47,11 +47,11 @@
 import {  getCurrentInstance, ref, reactive} from 'vue'
 const { proxy } = getCurrentInstance()
 defineProps({
-  formItem: { // 表格数据
+  formItem: { // form查询项
     type: Array,
     default: () => []
   },
-  formData: { // 表格数据
+  formData: { // form查询数据
     type: Object,
     default: () => {}
   }
