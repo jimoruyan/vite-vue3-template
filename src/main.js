@@ -16,5 +16,4 @@ for (let iconName in ElIconModules) {
     app.component(iconName, ElIconModules[iconName])
   }
 }
-
 app.use(router).use(store).use(ElementPlus).mount('#app')

@@ -10,7 +10,7 @@
       :radio="true"
       :total="8000"
       :list-loading="listLoading"
-      table-height="calc(100vh - 240px)"
+      table-height="calc(100vh - 270px)"
       @handleView="handleView"
       @handleEdit="handleEdit"
       @handleDelete="handleDelete"

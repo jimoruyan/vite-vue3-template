@@ -3,10 +3,17 @@ import RouteView from '@/components/RouteView.vue'
 
 const layoutMap = [
   {
+    path: 'dashboard',
+    name: 'Dashboard',
+    component: import('@/view/dashboard/index.vue'),
+    meta: { title: '仪表盘', icon: 'Expand' }
+  },
+  {
     path: 'side-menu1',
     name: 'SideMenu1',
     component: RouteView,
     meta: { title: '侧边菜单1', icon: 'Expand' },
+    redirect: { name: 'SideMenu1Item1' },
     children: [
       {
         path: 'side-menu1-item1',
@@ -39,6 +46,7 @@ const layoutMap = [
     name: 'SideMenu2',
     component: RouteView,
     meta: { title: '侧边菜单2', icon: 'Expand' },
+    redirect: { name: 'SideMenu2Item1' },
     children: [
       {
         path: 'side-menu2-item1',
@@ -69,7 +77,7 @@ const layoutMap = [
 ]
 
 const routes = [
-  { path: '/', name: 'Layout', component: Layout, children: [...layoutMap] },
+  { path: '/', name: 'Layout', meta: { title: '首页' }, redirect: { name: 'Dashboard' }, component: Layout, children: [...layoutMap] },
   { path: '/test', name: 'Test', meta: { title: '白名单测试', whiteList: true }, component: () => import('@/view/side-menu2/item-menu4/index.vue') },
   {
     path: '/login',

@@ -9,6 +9,7 @@
     <el-container>
       <Header />
       <div class="app-wrap">
+        <BreadCrumb />
         <el-main>
           <router-view />
         </el-main>
@@ -22,6 +23,7 @@
 <script setup>
 import Aside from './Aside.vue'
 import Header from './Header.vue'
+import BreadCrumb from '@/components/BreadCrumb/index.vue'
 
 </script>
 <style lang="less" scoped>
@@ -44,7 +46,7 @@ import Header from './Header.vue'
       overflow-y: auto;
       .el-main {
         padding: 16px;
-        min-height: calc(100vh - 105px);
+        min-height: calc(100vh - 139px);
         height: auto;
       }
       .el-footer {
