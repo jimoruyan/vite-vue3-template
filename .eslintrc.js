@@ -10,7 +10,11 @@ module.exports = {
       node: true,
       es6: true,
     },
-    extends: ['plugin:vue/recommended', './.eslintrc-common.js'],
+    extends: [
+     // 'plugin:vue/recommended',
+      'plugin:vue/vue3-essential',
+       '@vue/standard', 
+       './.eslintrc-common.js'],
     globals: {
       ht: true
     },
@@ -24,6 +28,7 @@ module.exports = {
           "allowFirstLine": false
         }
       }],
+      "no-undef": "off",
       "vue/singleline-html-element-content-newline": "off",
       "vue/multiline-html-element-content-newline":"off",
       "vue/name-property-casing": ["error", "PascalCase"],

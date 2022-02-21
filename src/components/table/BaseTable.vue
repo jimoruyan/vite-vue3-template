@@ -1,53 +1,50 @@
 <template>
-  <div class="base-table">
-    <el-table
-      ref="tableDom"
-      v-loading="listLoading"
-      :data="tableData"
-      style="width: 100%"
-      :height="tableHeight"
-      @selection-change="handleSelectionChange"
-      @select-all="onSelectAll"
-    >
-      <el-table-column v-if="selection" type="selection" width="60" />
-      <el-table-column
-        v-for="item in tableHead"
-        :key="item.prop"
-        :prop="item.prop"
-        :label="item.label"
-        show-overflow-tooltip
-      />
-      <el-table-column v-if="operation.length" label="操作" :width="operation.length && operation.length * 23 + 55">
-        <template v-if="setting" #header>
-          <div class="col-setting">
-            <span>操作</span>
-            <img src="@/assets/img/table/setting.png" title="设置" alt="设置" @click="openDialog">
-          </div>
-        </template>
-       
-        <template #default="scope">
-          <div class="handle">
-            <img v-if="operation.indexOf('view') > -1" src="@/assets/img/table/check.png" class="view" title="查看" alt="查看" @click="emit('handleView', scope.row)">
-            <img v-if="operation.indexOf('edit') > -1" src="@/assets/img/table/edit.png" class="edit" title="编辑" alt="编辑" @click="emit('handleEdit', scope.row)">
-            <img v-if="operation.indexOf('del') > -1" src="@/assets/img/table/delete.png" class="del" title="删除" alt="删除" @click="emit('handleDelete', scope.row)">
-          </div>
-        </template>
-      </el-table-column>
-    </el-table>
-    <Pagination
-      :total="total"
-      @pagination="pagination"
+  <el-table
+    v-bind="$attrs"
+    ref="tableDom"
+    v-loading="listLoading"
+    :data="tableData"
+    style="width: 100%"
+    @selection-change="handleSelectionChange"
+    @select-all="onSelectAll"
+  >
+    <el-table-column v-if="selection" type="selection" width= "60"/>
+    <el-table-column
+      v-for="item in tableHead"
+      :key="item.prop"
+      :prop="item.prop"
+      :label="item.label"
+      show-overflow-tooltip
     />
-  </div>
+    <el-table-column v-if="operation.length" label="操作" :width="operation.length && operation.length * 23 + 55">
+      <template v-if="setting" #header>
+        <div class="col-setting">
+          <span>操作</span>
+          <img src="@/assets/img/table/setting.png" title="设置" alt="设置" @click="openDialog">
+        </div>
+      </template>
+       
+      <template #default="scope">
+        <div class="handle">
+          <img v-if="operation.indexOf('view') > -1" src="@/assets/img/table/check.png" class="view" title="查看" alt="查看" @click="emit('handleView', scope.row)">
+          <img v-if="operation.indexOf('edit') > -1" src="@/assets/img/table/edit.png" class="edit" title="编辑" alt="编辑" @click="emit('handleEdit', scope.row)">
+          <img v-if="operation.indexOf('del') > -1" src="@/assets/img/table/delete.png" class="del" title="删除" alt="删除" @click="emit('handleDelete', scope.row)">
+        </div>
+      </template>
+    </el-table-column>
+  </el-table>
+  <Pagination
+    :total="total"
+    @pagination="pagination"
+  />
 </template>
 <script setup>
-import {  getCurrentInstance, ref  } from 'vue'
+import {  getCurrentInstance, ref } from 'vue'
 import Pagination from '@/components/Pagination/index.vue'
 
 const { proxy } = getCurrentInstance()
 
 const emit = defineEmits(['handleView', 'handleEdit', 'handleDelete', 'handleSelectionChange', 'onSelectAll', 'paginationChange'])
-
 
 defineProps({
   tableData: { // 表格数据
@@ -110,7 +107,6 @@ defineProps({
   }
 })
 
-
 const tableDom = ref()
 // 选择内容变化
 const handleSelectionChange = (val) => {
@@ -130,27 +126,24 @@ const onSelectAll = () => {
     emit('onSelectAll')
   }
 }
-const openDialog = () => {
-  console.log('设置')
-}
 
-const pagination = data => {
-  emit('paginationChange', data)
-}
+// 设置
+const openDialog = () => console.log('设置')
+// 翻页
+const pagination = data => emit('paginationChange', data)
 
 </script>
 <style lang="less">
-.base-table {
   .col-setting{
-      display: flex;
-      justify-content: space-between;
-      img{
-        cursor: pointer;
-        width: 16px;
-        height: 15px;
-        margin-top: 3px;
-      }
+    display: flex;
+    justify-content: space-between;
+    img{
+      cursor: pointer;
+      width: 16px;
+      height: 15px;
+      margin-top: 3px;
     }
+  }
   .handle {
     display: flex;
     justify-content: flex-start;
@@ -170,5 +163,4 @@ const pagination = data => {
       height: 17px;
     }
   }
-}
 </style>

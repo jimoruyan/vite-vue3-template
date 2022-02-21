@@ -10,13 +10,22 @@
   </div>
 </template>
 <script setup>
-import {computed } from 'vue'
+import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { ArrowRight } from '@element-plus/icons'
+import {  onBeforeRouteUpdate } from 'vue-router'
+
 const store = useStore()
 
 const breadcrumbData = computed(() => store.state.app.breadCrumb)
 
+onBeforeRouteUpdate(async(to) => {
+  let breadCrumbList = []
+  to.matched.forEach(item => {
+    breadCrumbList.push({name: item.meta.title, path: item.path})
+  })
+  store.dispatch('setBreadCrumb', breadCrumbList)
+})
 </script>
 <style lang="less" scoped>
 .bread-crumbs-wrap{

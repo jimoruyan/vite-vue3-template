@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './routes.js'
 import { decode } from 'js-base64'
-import store from '../store'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,14 +16,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   document.title = (to.meta && to.meta.title) || ''
-  if (to.matched.length) {
-    // 设置面包屑
-    let breadCrumbList = []
-    to.matched.forEach(item => {
-      breadCrumbList.push({name: item.meta.title, path: item.path})
-    })
-    store.dispatch('setBreadCrumb', breadCrumbList)
-  }
+
   const jwt = sessionStorage.getItem('jwt') || ''
 
   if (to.path === '/login') {

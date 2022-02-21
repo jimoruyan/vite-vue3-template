@@ -20,6 +20,16 @@ module.exports = {
   // 以当前目录为根目录，不再向上查找 .eslintrc.js
   root: true,
   rules: {
+    // @fixable 去除标签中间空格
+    "vue/no-multi-spaces": ["error", {
+      "ignoreProperties": false
+    }],
+    // @fixable 去除标签手尾空格
+    "vue/html-closing-bracket-spacing": ["error", {
+      "startTag": "never",
+      "endTag": "never",
+      "selfClosingTag": "never"
+    }],
     // @fixable 使用两个空格进行缩进
     'indent': [
       'error',
@@ -303,6 +313,5 @@ module.exports = {
     // let foo = bar
     // [1, 2, 3].forEach(baz);
     'no-unexpected-multiline': 'error',
-
   }
 };

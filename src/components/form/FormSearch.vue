@@ -5,12 +5,7 @@
         <el-form :inline="true" :model="form" label-width="120px" label-position="right">
           <el-row>
             <el-col v-for="(item, index) in formItem" :key="index" :span="item.width">
-              <el-form-item
-                :key="index"
-                :label="item.label"
-                :prop="item.value"
-                style="width:100%"
-              >
+              <el-form-item :key="index"  :label="item.label"                 :prop="item.value" style="width:100%">
                 <!-- 下拉 -->
                 <el-select
                   v-if="item.type === 'select'"
@@ -44,7 +39,7 @@
   </div>
 </template>
 <script setup>
-import {  getCurrentInstance, ref, reactive} from 'vue'
+import {  getCurrentInstance, ref, reactive } from 'vue'
 const { proxy } = getCurrentInstance()
 defineProps({
   formItem: { // form查询项
@@ -58,7 +53,7 @@ defineProps({
 })
 const emit = defineEmits(['searchForm', 'clearForm'])
 
-let form = reactive(JSON.parse(JSON.stringify(proxy.formData)))  // form查询数据
+const form = reactive(JSON.parse(JSON.stringify(proxy.formData)))  // form查询数据
 
 const clearData = () => { // 清空搜索栏
   Object.keys(form).map(key => { form[key] = '' })
