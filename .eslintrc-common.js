@@ -20,6 +20,7 @@ module.exports = {
   // 以当前目录为根目录，不再向上查找 .eslintrc.js
   root: true,
   rules: {
+    
     // @fixable 去除标签中间空格
     "vue/no-multi-spaces": ["error", {
       "ignoreProperties": false

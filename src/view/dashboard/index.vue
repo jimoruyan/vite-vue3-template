@@ -80,7 +80,7 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive, onMounted, watch  } from 'vue'
+import { ref, onMounted, watch  } from 'vue'
 
 const selectValue1 = ref('')
 const selectValue2 = ref('')
@@ -140,7 +140,7 @@ onMounted(() => {
 })
 
 const weekNumToString = (num) => {
-  let week = {
+  const week = {
     1: '星期一',
     2: '星期二',
     3: '星期三',
@@ -151,7 +151,6 @@ const weekNumToString = (num) => {
   }
   return week[num]
 }
-     
 
 </script>
 

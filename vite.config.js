@@ -15,13 +15,13 @@ export default defineConfig({
     ]
   },
   define: {
-    'buildTime': JSON.stringify(new Date().toLocaleString())
+    buildTime: JSON.stringify(new Date().toLocaleString())
   },
   server: {
     // 服务器主机名
-    host: '',
+    host: 'localhost',
     // 端口号
-    port: 3000,
+    port: 3100,
     // 设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
     strictPort: false,
     // 服务器启动时自动在浏览器中打开应用程序,当此值为字符串时，会被用作 URL 的路径名

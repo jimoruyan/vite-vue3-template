@@ -13,8 +13,8 @@ module.exports = {
     extends: [
      // 'plugin:vue/recommended',
       'plugin:vue/vue3-essential',
-       '@vue/standard', 
-       './.eslintrc-common.js'],
+      '@vue/standard', 
+      './.eslintrc-common.js'],
     globals: {
       ht: true
     },

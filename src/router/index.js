@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './routes.js'
 import { decode } from 'js-base64'
+import store from '../store'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,7 +17,12 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   document.title = (to.meta && to.meta.title) || ''
-
+  // 设置面包屑
+  const breadCrumbList = []
+  to.matched.forEach(item => {
+    breadCrumbList.push({ name: item.meta.title, path: item.path })
+  })
+  store.dispatch('setBreadCrumb', breadCrumbList)
   const jwt = sessionStorage.getItem('jwt') || ''
 
   if (to.path === '/login') {
@@ -28,19 +34,17 @@ router.beforeEach((to, from, next) => {
       return false
     }
     if (jwt) {
-      if (to.meta.hasOwnProperty('roles')) {
-        let roles = to.meta.roles || []
-        let { role } = jwt && JSON.parse(decode(jwt))
+      if (Object.prototype.hasOwnProperty.call(to.meta, 'roles')) {
+        const roles = to.meta.roles || []
+        const { role } = jwt && JSON.parse(decode(jwt))
         roles.includes(role) ? next() : next('/error')
         return false
       }
       next()
-      
     } else if (to.meta && to.meta.whiteList) {
       next()
     } else {
       next('/login')
-
     }
   }
 })
