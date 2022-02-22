@@ -23,7 +23,6 @@
           <img src="@/assets/img/table/setting.png" title="设置" alt="设置" @click="openDialog">
         </div>
       </template>
-       
       <template #default="scope">
         <div class="handle">
           <img v-if="operation.indexOf('view') > -1" src="@/assets/img/table/check.png" class="view" title="查看" alt="查看" @click="emit('handleView', scope.row)">
