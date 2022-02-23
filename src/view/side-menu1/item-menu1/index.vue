@@ -19,13 +19,12 @@
       @paginationChange="paginationChange"
     />
     <AddForm ref="AddFormRef" @addExamTrue="addExamTrue"/>
-
   </div>
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
 import Table from '@/components/Table/BaseTable.vue'
-import AddForm from './components/AddForm.vue' // 新增考试
+import AddForm from './components/AddForm.vue'
 import FormSearch from '@/components/Form/FormSearch.vue'
 const formItem = [
   {
