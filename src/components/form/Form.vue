@@ -127,7 +127,7 @@
                 :file-list="form.fileList"
               >
                 <el-button size="small" type="primary">
-                  <img src="@/assets/img/form/upload.png" alt="">
+                  <!-- <img src="@/assets/img/form/upload.png" alt=""> -->
                   点击上传
                 </el-button>
                 <div class="el-upload__tip">
