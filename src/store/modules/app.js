@@ -1,8 +1,9 @@
-import { ENV, BREAD_CRUMB } from '../mutation-types'
+import { ENV, BREAD_CRUMB, AISIDE_MENU } from '../mutation-types'
 
 const app = {
   state: {
     env: null,
+    asideMenu: true,
     breadCrumb: []
   },
   mutations: {
@@ -11,6 +12,9 @@ const app = {
     },
     [BREAD_CRUMB](state, payload) {
       state.breadCrumb = payload
+    },
+    [AISIDE_MENU](state, payload) {
+      state.asideMenu = payload
     }
   },
   actions: {
@@ -19,6 +23,9 @@ const app = {
     },
     setBreadCrumb({ commit }, payload) {
       commit(BREAD_CRUMB, payload)
+    },
+    setAsideMenu({ commit }, payload) {
+      commit(AISIDE_MENU, payload)
     }
   }
 }

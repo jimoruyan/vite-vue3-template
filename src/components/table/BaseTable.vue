@@ -8,7 +8,7 @@
     @selection-change="handleSelectionChange"
     @select-all="onSelectAll"
   >
-    <el-table-column v-if="selection" type="selection" width= "60"/>
+    <el-table-column v-if="selection" type="selection" width="60"/>
     <el-table-column
       v-for="item in tableHead"
       :key="item.prop"

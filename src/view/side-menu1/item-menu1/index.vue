@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm" />
+    <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm"/>
     <Table
       :table-head="tableHead"
       :table-data="tableData"
@@ -10,7 +10,7 @@
       :radio="true"
       :total="8000"
       :list-loading="listLoading"
-      table-height="calc(100vh - 270px)"
+      style="height:calc(100vh - 270px);"
       @handleView="handleView"
       @handleEdit="handleEdit"
       @handleDelete="handleDelete"
@@ -18,11 +18,14 @@
       @handleSelectionChange="handleSelectionChange"
       @paginationChange="paginationChange"
     />
+    <AddForm ref="AddFormRef" @addExamTrue="addExamTrue"/>
+
   </div>
 </template>
 <script setup>
-import {ref, reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import Table from '@/components/Table/BaseTable.vue'
+import AddForm from './components/AddForm.vue' // 新增考试
 import FormSearch from '@/components/Form/FormSearch.vue'
 const formItem = [
   {
@@ -70,7 +73,8 @@ const formItem = [
     ]
   }
 ]
-const formData = reactive({name: '', age: '', classes: ''})
+const formData = reactive({ name: '', age: '', classes: '' })
+const AddFormRef = ref(null)
 
 const tableHead = [
   {
@@ -87,7 +91,7 @@ const tableHead = [
   }
 ]
 
-let listLoading = ref(true)
+const listLoading = ref(true)
 const tableData = reactive([])
 
 setTimeout(() => {
@@ -105,6 +109,7 @@ const handleView = row => {
   console.log('查看', row)
 }
 const handleEdit = row => {
+  AddFormRef.value.open()
   console.log('编辑', row)
 }
 const handleDelete = row => {

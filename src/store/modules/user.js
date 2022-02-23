@@ -24,8 +24,8 @@ const user = {
       commit(CLEAR_USER)
     },
     setUser({ commit }, payload) {
-      let deepCopy = JSON.parse(JSON.stringify(layoutMap))
-      let accessedRouters = filterAsyncRouter(deepCopy, payload.role)
+      const deepCopy = JSON.parse(JSON.stringify(layoutMap))
+      const accessedRouters = filterAsyncRouter(deepCopy, payload.role)
       commit(SET_USER, payload)
       commit(SET_ROUTES, accessedRouters)
     }

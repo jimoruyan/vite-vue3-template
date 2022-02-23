@@ -21,16 +21,16 @@
         <div v-if="!item['hidden']">
           <el-sub-menu v-if="item.children && item.children.length" :index="concatPath(item.path)">
             <template #title>
-              <i :class="item.meta.icon" />
+              <i :class="item.meta.icon"/>
               <el-icon :size="20">
-                <component :is="item.meta.icon" />
+                <component :is="item.meta.icon"/>
               </el-icon>
               <span>{{ item.meta.title }}</span>
             </template>
             <div v-for="sub in item.children" :key="sub.name">
               <el-menu-item :index="concatPath(item.path, sub.path)">
                 <el-icon :size="20">
-                  <component :is="sub.meta.icon" />
+                  <component :is="sub.meta.icon"/>
                 </el-icon>
                 <template #title>{{ sub.meta.title }}</template>
               </el-menu-item>
@@ -38,7 +38,7 @@
           </el-sub-menu>
           <el-menu-item v-else :index="concatPath(item.path)">
             <el-icon :size="20">
-              <component :is="item.meta.icon" />
+              <component :is="item.meta.icon"/>
             </el-icon>
             <template #title>{{ item.meta.title }}</template>
           </el-menu-item>
@@ -47,10 +47,10 @@
     </el-menu>
     <div class="fold" @click="changeCollapse">
       <el-icon v-show="!state.isCollapse">
-        <arrow-left-bold />
+        <arrow-left-bold/>
       </el-icon>
       <el-icon v-show="state.isCollapse">
-        <arrow-right-bold />
+        <arrow-right-bold/>
       </el-icon>
     </div>
   </el-aside>

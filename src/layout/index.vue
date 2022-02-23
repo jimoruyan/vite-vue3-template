@@ -5,13 +5,13 @@
  -->
 <template>
   <el-container class="layout">
-    <Aside />
+    <Aside v-show="isAsideMenu"/>
     <el-container>
-      <Header />
+      <Header/>
       <div class="app-wrap">
-        <BreadCrumb />
+        <BreadCrumb/>
         <el-main>
-          <router-view />
+          <router-view/>
         </el-main>
         <el-footer>
           Vue3 + Element-Plus Create By Vite
@@ -24,6 +24,10 @@
 import Aside from './Aside.vue'
 import Header from './Header.vue'
 import BreadCrumb from '@/components/BreadCrumb/index.vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+const store = useStore()
+const isAsideMenu = computed(() => store.getters.asideMenu)
 
 </script>
 <style lang="less" scoped>

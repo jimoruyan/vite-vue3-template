@@ -11,7 +11,7 @@ module.exports = {
       es6: true,
     },
     extends: [
-     // 'plugin:vue/recommended',
+      //'plugin:vue/recommended',
       'plugin:vue/vue3-essential',
       '@vue/standard', 
       './.eslintrc-common.js'],
