@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './routes.js'
 import { decode } from 'js-base64'
 import store from '../store'
-
+import { useI18n } from '@/hooks/web/usei18n'
+const { t } = useI18n()
+console.log(t)
 const router = createRouter({
   history: createWebHistory(),
   routes: [...routes],
@@ -16,7 +18,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = (to.meta && to.meta.title) || ''
+  document.title = (to.meta && t(to.meta.title)) || ''
   // 设置面包屑
   const breadCrumbList = []
   to.matched.forEach(item => {

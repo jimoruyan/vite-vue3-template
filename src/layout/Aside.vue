@@ -25,14 +25,14 @@
               <el-icon :size="20">
                 <component :is="item.meta.icon"/>
               </el-icon>
-              <span>{{ item.meta.title }}</span>
+              <span>{{ $t(item.meta.title) }}</span>
             </template>
             <div v-for="sub in item.children" :key="sub.name">
               <el-menu-item :index="concatPath(item.path, sub.path)">
                 <el-icon :size="20">
                   <component :is="sub.meta.icon"/>
                 </el-icon>
-                <template #title>{{ sub.meta.title }}</template>
+                <template #title>{{$t(sub.meta.title) }}</template>
               </el-menu-item>
             </div>
           </el-sub-menu>
@@ -40,7 +40,7 @@
             <el-icon :size="20">
               <component :is="item.meta.icon"/>
             </el-icon>
-            <template #title>{{ item.meta.title }}</template>
+            <template #title>{{ $t(item.meta.title) }}</template>
           </el-menu-item>
         </div>
       </div>
@@ -65,7 +65,6 @@ const route = useRoute()
 const store = useStore()
 const state = reactive({ isCollapse: false })
 const routers = computed(() => store.state.user.routers)
-
 const changeCollapse = () => {
   state.isCollapse = !state.isCollapse
 }

@@ -8,13 +8,12 @@
         <div class="header-data">
           <span>{{nowDate.ymd}}</span>
           <span>{{nowDate.week}}</span>
-          <span>{{ $t('common.hello') }}</span>
         </div>
       </div>
       <div class="header-center">
-        <div class="header-page_button" @click="router.push({ path: '/dataPreview' })"> 系统总览 </div>
+        <div class="header-page_button" @click="router.push({ path: '/data-preview' })"> 系统总览 </div>
         <div class="header-page_title">物联网监控平台</div>
-        <div class="header-page_button" @click="router.push({ path: '/dataPreview' })"> 数据监控 </div>
+        <div class="header-page_button" @click="router.push({ path: '/data-preview' })"> 数据监控 </div>
       </div>
       <div class="header-right">
         <span @click="router.push({ path: '/dataPreview' })"> 控制台</span>
@@ -26,9 +25,7 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { formatTime } from '@/utils/date'
-import i18n from '@/i18n'
-console.log(i18n.global)
-i18n.global.locale = 'eng'
+
 const router = useRouter()
 const nowDate = reactive({
   ymd: formatTime(new Date(), 'YMD'),

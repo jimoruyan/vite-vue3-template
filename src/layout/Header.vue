@@ -51,6 +51,17 @@
       <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
         <el-icon><full-screen @click="handleFullScreen"/></el-icon>
       </el-tooltip>
+      <el-dropdown size="medium" @command="handleLang">
+        <div class="user-info">
+          <span>语言</span>
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="zh_CN">中文</el-dropdown-item>
+            <el-dropdown-item command="en">English</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
       <el-dropdown size="medium" @command="handleCommand">
         <div class="user-info">
           <img class="user_avatar" src="@/assets/img/avatar.jpg">
@@ -69,11 +80,12 @@
 
 <script setup>
 import { computed, getCurrentInstance, reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import screenfull from 'screenfull'
 import { removeAuthed, removeToken } from '@/utils/auth'
-
+import i18n from  '@/locales'
+import { useI18n } from '@/hooks/web/usei18n'
 const { proxy } = getCurrentInstance()
 const router = useRouter()
 const store = useStore()
@@ -84,6 +96,15 @@ const state = reactive({
   isFullScreen: false,
   screenfull
 })
+const route = useRoute()
+const { t } = useI18n()
+
+const handleLang = command => {
+  i18n.global.locale = command
+  console.log(route)
+  document.title = t(route.meta.title) || ''
+  store.dispatch('setLang', command)
+}
 const handleCommand = command => {
   if (command === 'user') {
     console.log('user')

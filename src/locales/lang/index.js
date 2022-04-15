@@ -6,7 +6,7 @@ for (const path in modulesFilesEn) {
   modulesEn[moduleName] = modulesFilesEn[path].default
 }
 // 批量引入中文
-const modulesFilesZhCN = import.meta.globEager('./en/**/*.js')
+const modulesFilesZhCN = import.meta.globEager('./zh-CN/**/*.js')
 const modulesZhCN  = {}
 for (const path in modulesFilesZhCN) {
   const moduleName = path.replace(/(.*\/)*([^.]+).*/gi, '$2')

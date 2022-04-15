@@ -1,66 +1,66 @@
 import Layout from '@/layout/index.vue'
 import RouteView from '@/components/RouteView.vue'
-
+import { t } from '@/hooks/web/usei18n'
 const layoutMap = [
   {
     path: 'monitoring-page',
     name: 'MonitoringPage',
     component: () => import('@/view/monitoring-page/index.vue'),
-    meta: { title: '监控首页', icon: 'Connection' }
+    meta: { title: t('router.monitoringPage'), icon: 'Connection' }
   },
   {
-    path: 'dataPreview',
+    path: 'data-preview',
     name: 'DataPreview',
-    component: () => import('@/view/dataPreview/index.vue'),
-    meta: { title: '数据预览', icon: 'User' }
+    component: () => import('@/view/data-preview/index.vue'),
+    meta: { title: t('router.dataPreview'), icon: 'User' }
   },
   {
-    path: 'dataQuery',
+    path: 'data-query',
     name: 'DataQuery',
-    component: () => import('@/view/dataQuery/index.vue'),
-    meta: { title: '数据查询', icon: 'UserFilled' }
+    component: () => import('@/view/data-query/index.vue'),
+    meta: { title: t('router.dataQuery'), icon: 'UserFilled' }
   },
   {
-    path: 'dataAnalysis',
+    path: 'data-analysis',
     name: 'DataAnalysis',
-    component: () => import('@/view/dataAnalysis/index.vue'),
-    meta: { title: '数据分析', icon: 'UserFilled' }
+    component: () => import('@/view/data-analysis/index.vue'),
+    meta: { title: t('router.dataAnalysis'), icon: 'UserFilled' }
   },
   {
-    path: 'siteLocation',
+    path: 'site-location',
     name: 'SiteLocation',
-    component: () => import('@/view/siteLocation/index.vue'),
-    meta: { title: '站点位置', icon: 'UserFilled' }
+    component: () => import('@/view/site-location/index.vue'),
+    meta: { title: t('router.siteLocation'), icon: 'UserFilled' }
   },
   {
     path: 'hydrology',
     name: 'Hydrology',
     component: () => RouteView,
-    meta: { title: '水文', icon: 'Expand' },
+    meta: { title: t('router.hydrology.hydrology'), icon: 'Expand' },
     redirect: { name: 'SideMenu1Item1' },
     children: [
       {
         path: 'bsse-info',
         name: 'BsseInfo',
-        meta: { title: '基本信息', icon: 'ForkSpoon' },
+        meta: { title: t('router.hydrology.bsseInfo'), icon: 'ForkSpoon' },
         component: () => import('@/view/hydrology/bsse-info/index.vue')
       },
       {
         path: 'real-time-data',
         name: 'RealTimeFata',
-        meta: { title: '实时数据', icon: 'ForkSpoon' },
+        meta: { title: t('router.hydrology.realTimeData'), icon: 'ForkSpoon' },
         component: () => import('@/view/hydrology/real-time-data/index.vue')
       },
       {
         path: 'consumption-records',
         name: 'ConsumptionRecords',
-        meta: { title: '消费记录', icon: 'ForkSpoon' },
+        meta: { title: t('router.hydrology.consumptionRecords'), icon: 'ForkSpoon' },
         component: () => import('@/view/hydrology/consumption-records/index.vue')
       },
       {
         path: 'recharge-record',
         name: 'RechargeRecord',
-        meta: { title: '充值记录', icon: 'ForkSpoon' },
+        meta: { title: t('router.hydrology.rechargeRecord'), icon: 'ForkSpoon' },
         component: () => import('@/view/hydrology/recharge-record/index.vue')
       }
     ]
@@ -68,18 +68,18 @@ const layoutMap = [
 ]
 
 const routes = [
-  { path: '/', name: 'Layout', meta: { title: '首页' }, redirect: { name: 'MonitoringPage' }, component: Layout, children: [...layoutMap] },
-  { path: '/test', name: 'Test', meta: { title: '白名单测试', whiteList: true }, component: () => import('@/view/side-menu2/item-menu4/index.vue') },
+  { path: '/', name: 'Layout', meta: { title: t('router.home') }, redirect: { name: 'MonitoringPage' }, component: Layout, children: [...layoutMap] },
+  { path: '/test', name: 'Test', meta: { title: t('router.test'), whiteList: true }, component: () => import('@/view/side-menu2/item-menu4/index.vue') },
   {
     path: '/monitoring-page',
     name: 'MonitoringPage',
     component: () => import('@/view/monitoring-page/index.vue'),
-    meta: { title: '监控首页', icon: 'Connection' }
+    meta: { title: t('router.monitoringPage'), icon: 'Connection' }
   },
   {
     path: '/login',
     name: 'Login',
-    meta: { title: '登录' },
+    meta: { title: t('router.login') },
     component: () => import('@/view/login/Login.vue')
   }
 ]

@@ -1,8 +1,9 @@
-import { ENV, BREAD_CRUMB, AISIDE_MENU } from '../mutation-types'
+import { ENV, BREAD_CRUMB, AISIDE_MENU, LANG } from '../mutation-types'
 
 const app = {
   state: {
     env: null,
+    lang: 'zh_CN',
     asideMenu: true,
     breadCrumb: []
   },
@@ -15,6 +16,9 @@ const app = {
     },
     [AISIDE_MENU](state, payload) {
       state.asideMenu = payload
+    },
+    [LANG](state, payload) {
+      state.lang = payload
     }
   },
   actions: {
@@ -26,6 +30,9 @@ const app = {
     },
     setAsideMenu({ commit }, payload) {
       commit(AISIDE_MENU, payload)
+    },
+    setLang({ commit }, payload) {
+      commit(LANG, payload)
     }
   }
 }

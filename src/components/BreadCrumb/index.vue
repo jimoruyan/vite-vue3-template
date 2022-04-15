@@ -4,7 +4,7 @@
     <el-breadcrumb :separator-icon="ArrowRight">
       <!-- <el-breadcrumb-item><img src="@/assets/img/home.png" alt=""></el-breadcrumb-item> -->
       <el-breadcrumb-item v-for="item in breadcrumbData" :key="item.name" :to="{path:item.path}">
-        <span>{{ item.name }}</span>
+        <span>{{$t(item.name) }}</span>
       </el-breadcrumb-item>
     </el-breadcrumb>
   </div>
