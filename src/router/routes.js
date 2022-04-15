@@ -3,82 +3,79 @@ import RouteView from '@/components/RouteView.vue'
 
 const layoutMap = [
   {
-    path: 'dashboard',
-    name: 'Dashboard',
-    component: import('@/view/dashboard/index.vue'),
-    meta: { title: '仪表盘', icon: 'Expand' }
+    path: 'monitoring-page',
+    name: 'MonitoringPage',
+    component: () => import('@/view/monitoring-page/index.vue'),
+    meta: { title: '监控首页', icon: 'Connection' }
   },
   {
-    path: 'side-menu1',
-    name: 'SideMenu1',
-    component: RouteView,
-    meta: { title: '侧边菜单1', icon: 'Expand' },
+    path: 'dataPreview',
+    name: 'DataPreview',
+    component: () => import('@/view/dataPreview/index.vue'),
+    meta: { title: '数据预览', icon: 'User' }
+  },
+  {
+    path: 'dataQuery',
+    name: 'DataQuery',
+    component: () => import('@/view/dataQuery/index.vue'),
+    meta: { title: '数据查询', icon: 'UserFilled' }
+  },
+  {
+    path: 'dataAnalysis',
+    name: 'DataAnalysis',
+    component: () => import('@/view/dataAnalysis/index.vue'),
+    meta: { title: '数据分析', icon: 'UserFilled' }
+  },
+  {
+    path: 'siteLocation',
+    name: 'SiteLocation',
+    component: () => import('@/view/siteLocation/index.vue'),
+    meta: { title: '站点位置', icon: 'UserFilled' }
+  },
+  {
+    path: 'hydrology',
+    name: 'Hydrology',
+    component: () => RouteView,
+    meta: { title: '水文', icon: 'Expand' },
     redirect: { name: 'SideMenu1Item1' },
     children: [
       {
-        path: 'side-menu1-item1',
-        name: 'SideMenu1Item1',
-        meta: { title: '菜单1', icon: 'ForkSpoon' },
-        component: () => import('@/view/side-menu1/item-menu1/index.vue')
+        path: 'bsse-info',
+        name: 'BsseInfo',
+        meta: { title: '基本信息', icon: 'ForkSpoon' },
+        component: () => import('@/view/hydrology/bsse-info/index.vue')
       },
       {
-        path: 'side-menu1-item2',
-        name: 'SideMenu1Item2',
-        meta: { title: '菜单2', icon: 'ForkSpoon' },
-        component: () => import('@/view/side-menu1/item-menu2/index.vue')
+        path: 'real-time-data',
+        name: 'RealTimeFata',
+        meta: { title: '实时数据', icon: 'ForkSpoon' },
+        component: () => import('@/view/hydrology/real-time-data/index.vue')
       },
       {
-        path: 'side-menu1-item3',
-        name: 'SideMenu1Item3',
-        meta: { title: '菜单3', icon: 'ForkSpoon'},
-        component: () => import('@/view/side-menu1/item-menu3/index.vue')
+        path: 'consumption-records',
+        name: 'ConsumptionRecords',
+        meta: { title: '消费记录', icon: 'ForkSpoon' },
+        component: () => import('@/view/hydrology/consumption-records/index.vue')
       },
       {
-        path: 'side-menu1-item4',
-        name: 'SideMenu1Item4',
-        meta: { title: '菜单4', icon: 'ForkSpoon', roles: ['admin'] },
-        component: () => import('@/view/side-menu1/item-menu4/index.vue')
-      }
-    ]
-  },
-  {
-    path: 'side-menu2',
-    name: 'SideMenu2',
-    component: RouteView,
-    meta: { title: '侧边菜单2', icon: 'Expand' },
-    redirect: { name: 'SideMenu2Item1' },
-    children: [
-      {
-        path: 'side-menu2-item1',
-        name: 'SideMenu2Item1',
-        meta: { title: '菜单1', icon: 'ForkSpoon' },
-        component: () => import('@/view/side-menu2/item-menu1/index.vue')
-      },
-      {
-        path: 'side-menu2-item2',
-        name: 'SideMenu2Item2',
-        meta: { title: '菜单2', icon: 'ForkSpoon' },
-        component: () => import('@/view/side-menu2/item-menu2/index.vue')
-      },
-      {
-        path: 'side-menu2-item3',
-        name: 'SideMenu2Item3',
-        meta: { title: '菜单3', icon: 'ForkSpoon' },
-        component: () => import('@/view/side-menu2/item-menu3/index.vue')
-      },
-      {
-        path: 'side-menu2-item4',
-        name: 'SideMenu2Item4',
-        meta: { title: '菜单4', icon: 'ForkSpoon', roles: ['admin'] },
-        component: () => import('@/view/side-menu2/item-menu4/index.vue')
+        path: 'recharge-record',
+        name: 'RechargeRecord',
+        meta: { title: '充值记录', icon: 'ForkSpoon' },
+        component: () => import('@/view/hydrology/recharge-record/index.vue')
       }
     ]
   }
 ]
 
 const routes = [
-  { path: '/', name: 'Layout', meta: { title: '首页' }, redirect: { name: 'Dashboard' }, component: Layout, children: [...layoutMap] },
+  { path: '/', name: 'Layout', meta: { title: '首页' }, redirect: { name: 'MonitoringPage' }, component: Layout, children: [...layoutMap] },
   { path: '/test', name: 'Test', meta: { title: '白名单测试', whiteList: true }, component: () => import('@/view/side-menu2/item-menu4/index.vue') },
+  {
+    path: '/monitoring-page',
+    name: 'MonitoringPage',
+    component: () => import('@/view/monitoring-page/index.vue'),
+    meta: { title: '监控首页', icon: 'Connection' }
+  },
   {
     path: '/login',
     name: 'Login',

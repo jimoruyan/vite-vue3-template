@@ -52,8 +52,8 @@ const store = useStore()
 const loginFormRef = ref()
 
 const loginFormState = reactive({
-  name: '',
-  pwd: '',
+  name: 'admin',
+  pwd: '123456',
   loading: false
 })
 
@@ -92,8 +92,8 @@ const handleLogin = () => {
 .login {
     width: 100vw;
     height: 100vh;
-    background-image: url("../../assets/img/login.png");
-    background-size: cover;
+    // background-image: url("../../assets/img/login.png");
+    // background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;

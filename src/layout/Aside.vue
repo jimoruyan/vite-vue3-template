@@ -6,7 +6,7 @@
 <template>
   <el-aside :width="state.isCollapse ? `64px` : `200px`">
     <div class="logo">
-      <img src="@/assets/img/avatar.jpg" alt="logo" draggable="false">
+      <img src="@/assets/img/logo.png" alt="logo" draggable="false">
     </div>
     <el-menu
       background-color="#001529"
@@ -109,18 +109,16 @@ const concatPath = (p_path, c_path = '') => {
     justify-content: center;
     background-color: #002140;
     img {
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       background-color: #fff;
+      margin:0 10px;
     }
-    p {
-      flex: 1;
-      padding-left: 10px;
-      height: 56px;
-      font-size: 20px;
+    p{
       color: #fff;
-      overflow: hidden;
+      font-size: 22px;
+      white-space: nowrap;
     }
   }
   .el-menu {

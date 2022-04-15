@@ -7,7 +7,7 @@
         :rules="rules"
         :model="form"
         :inline="true"
-        label-position="top"
+        label-position="left"
         v-bind="{ 'label-width': labelWidth }"
       >
         <el-row>
@@ -247,7 +247,8 @@ defineExpose({
     width: 100%;
   }
   .el-form-item {
-    margin: 5px 10px;
+    // margin: 5px 10px;
+    width:calc(100% - 20px);
     .el-select {
       width: 100%;
     }

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import ElementPlus from 'element-plus'
+import i18n from './locales'
 import '@/assets/css/reset.css'
 import 'element-plus/dist/index.css'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
@@ -18,4 +19,4 @@ for (const iconName in ElIconModules) {
     app.component(iconName, ElIconModules[iconName])
   }
 }
-app.use(router).use(store).use(ElementPlus, { locale }).mount('#app')
+app.use(router).use(store).use(ElementPlus, { locale }).use(i18n).mount('#app')

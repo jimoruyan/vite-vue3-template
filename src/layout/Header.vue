@@ -131,7 +131,7 @@ const handleMenu = () => {
     text-overflow: ellipsis;
     .el-menu{
       .el-sub-menu{
-        /deep/ .el-sub-menu__title {
+        :v-deep .el-sub-menu__title {
           .el-sub-menu__icon-arrow{
             margin-right: -20px;
           }

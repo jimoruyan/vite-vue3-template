@@ -4,7 +4,7 @@
     ref="tableDom"
     v-loading="listLoading"
     :data="tableData"
-    style="width: 100%"
+    height="100%"
     @selection-change="handleSelectionChange"
     @select-all="onSelectAll"
   >
@@ -32,10 +32,7 @@
       </template>
     </el-table-column>
   </el-table>
-  <Pagination
-    :total="total"
-    @pagination="pagination"
-  />
+  <Pagination :total="total" @pagination="pagination"/>
 </template>
 <script setup>
 import {  getCurrentInstance, ref } from 'vue'
@@ -133,6 +130,11 @@ const pagination = data => emit('paginationChange', data)
 
 </script>
 <style lang="less">
+  .el-table{
+    .cell{
+      line-height:40px;
+    }
+  }
   .col-setting{
     display: flex;
     justify-content: space-between;
