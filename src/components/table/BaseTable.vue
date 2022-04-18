@@ -4,6 +4,7 @@
     ref="tableDom"
     v-loading="listLoading"
     :data="tableData"
+    stripe
     height="100%"
     @selection-change="handleSelectionChange"
     @select-all="onSelectAll"

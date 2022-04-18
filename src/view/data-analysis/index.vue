@@ -2,7 +2,7 @@
   <div class="container">
     <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm"/>
     <div class="btn-list">
-      <el-button @click="addClue" type="primary">新增</el-button>
+      <el-button type="primary" icon="Plus" @click="addClue">新增</el-button>
     </div>
     <Table
       :table-head="tableHead"

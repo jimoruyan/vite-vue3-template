@@ -16,7 +16,7 @@
         <div class="header-page_button" @click="router.push({ path: '/data-preview' })"> 数据监控 </div>
       </div>
       <div class="header-right">
-        <span @click="router.push({ path: '/dataPreview' })"> 控制台</span>
+        <span @click="router.push({ path: '/data-preview' })"> 控制台</span>
       </div>
     </div>
   </div>
@@ -45,19 +45,16 @@ setInterval(() => {
   background-color: #060931;
   color: #fff;
   font-size: 16px;
-
   .monitor-screen_header {
     display: flex;
     justify-content: space-between;
     height: 70px;
     background: url(./img/top@3x.0011a1d.png) no-repeat;
     background-size: 100% 100%;
-
     .header-left {
       flex: 1;
       height: 100%;
       padding: 6px 0 0 40px;
-
       .header-time {
         line-height: 28px;
         font-size: 20px;
@@ -71,7 +68,6 @@ setInterval(() => {
         }
       }
     }
-
     .header-center {
       width: 546px;
       height: 100%;
@@ -79,7 +75,6 @@ setInterval(() => {
       padding-top: 10px;
       display: flex;
       justify-content: space-between;
-
       .header-page_button {
         cursor: pointer;
         width: 100px;
@@ -91,14 +86,12 @@ setInterval(() => {
         border: 1px solid #0095ff;
         border-radius: 10px;
       }
-
       .header-page_title {
         font-size: 26px;
         font-weight: 600;
         color: #92BCFF;
       }
     }
-
     .header-right {
       height: 100%;
       flex: 1;

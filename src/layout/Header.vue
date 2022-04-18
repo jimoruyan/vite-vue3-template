@@ -52,8 +52,9 @@
         <el-icon><full-screen @click="handleFullScreen"/></el-icon>
       </el-tooltip>
       <el-dropdown size="medium" @command="handleLang">
-        <div class="user-info">
-          <span>语言</span>
+        <div class="lang-info">
+          <img class="lang-svg" src="@/assets/icon/lang.svg">
+          <!-- <SvgIcon icon="lang"/> -->
         </div>
         <template #dropdown>
           <el-dropdown-menu>
@@ -86,6 +87,7 @@ import screenfull from 'screenfull'
 import { removeAuthed, removeToken } from '@/utils/auth'
 import i18n from  '@/locales'
 import { useI18n } from '@/hooks/web/usei18n'
+// import SvgIcon from '@/components/SvgIcon/index.vue'
 const { proxy } = getCurrentInstance()
 const router = useRouter()
 const store = useStore()
@@ -138,27 +140,19 @@ const handleMenu = () => {
 <style lang="less" scoped>
 .el-header {
   padding: 0 16px 0 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid @borderColor;
   display: flex;
-  display: -webkit-flex;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  background-color: @mainColor;
+  color: @textActiveColor;
   .header-left {
     flex: 1;
     font-size: 24px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    .el-menu{
-      .el-sub-menu{
-        :v-deep .el-sub-menu__title {
-          .el-sub-menu__icon-arrow{
-            margin-right: -20px;
-          }
-        }
-      }
-    }
   }
   .header-right {
     display: flex;
@@ -170,39 +164,33 @@ const handleMenu = () => {
       font-size: 20px;
       cursor: pointer;
     }
-
     .user-info {
       margin: 0 8px;
       width: auto;
       text-align: right;
+      color: @textActiveColor;
       cursor: pointer;
       .user_avatar {
         width: 30px;
         height: 30px;
         vertical-align: middle;
       }
+ 
+    }
+    .lang-info{
+      height: 30px;
+      line-height: 30px;
+      cursor: pointer;
+      .lang-svg{
+        width:25px;
+        height: 25px;
+      }
     }
     span.username {
       margin-left: 8px;
       vertical-align: middle;
-      &:hover {
-          color: #409eff;
-      }
     }
   }
 }
 
-</style>
-<style scoped lang="less">
-.el-menu--horizontal{
-  /* 激活选中菜单 */
-  .el-menu-item.is-active,
-  .el-menu--popup .el-menu-item.is-active {
-    background-color: #1890ff !important;
-  }
-  /* hover菜单 */
-  .el-menu-item:not(.is-disabled):hover{
-    background-color: #1890ff;
-  }
-}
 </style>

@@ -4,14 +4,11 @@
  * @date: 2021-11-26
  -->
 <template>
-  <el-aside :width="state.isCollapse ? `64px` : `200px`">
+  <el-aside :class="state.isCollapse ? `width64` : `width200`">
     <div class="logo">
       <img src="@/assets/img/logo.png" alt="logo" draggable="false">
     </div>
     <el-menu
-      background-color="#001529"
-      text-color="#eee"
-      active-text-color="#fff"
       router
       unique-opened
       :default-active="route.path"
@@ -76,46 +73,36 @@ const concatPath = (p_path, c_path = '') => {
 </script>
 
 <style lang="less" scoped>
-.noScrollBar {
-  overflow: hidden;
-  overflow-y: scroll;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    width: 0 !important;
-  }
+.width64{
+  width:64px;
 }
-
-.noSelect {
-  user-select: none;
+.width200{
+  width:200px;
 }
-
 .el-aside {
   box-sizing: border-box;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #001529;
+  background-color: @mainColor;
   overflow: hidden;
   transition: width 0.3s ease-in-out;
-  .noSelect;
+  user-select: none;
   .logo {
     height: 56px;
     line-height: 56px;
     display: flex;
-    display: -webkit-flex;
     align-items: center;
     justify-content: center;
-    background-color: #002140;
+    background-color: @mainColor;
     img {
       width: 35px;
       height: 35px;
       border-radius: 50%;
-      background-color: #fff;
       margin:0 10px;
     }
     p{
-      color: #fff;
+      color: @textColor;
       font-size: 22px;
       white-space: nowrap;
     }
@@ -123,7 +110,33 @@ const concatPath = (p_path, c_path = '') => {
   .el-menu {
     flex: 1;
     border-right: none;
-    .noScrollBar;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    background: @mainColor;
+    .el-menu-item,.el-sub-menu{
+      background: @mainColor;
+      color: @textColor;
+      &:hover{
+        color: @textActiveColor;
+        background: @mainHoverColor;
+      }
+      &.is-active{
+        color: @textActiveColor;
+         background-color: @mainActiveColor;
+      }
+      :deep(.el-sub-menu__title){
+        color: @textColor;
+        &:hover{
+          color: @textActiveColor;
+          background: @mainHoverColor;
+        }
+      }
+    }
+    
+    &::-webkit-scrollbar {
+      width: 0;
+    }
     &:not(.el-menu--collapse) {
       width: 200px;
     }
@@ -131,23 +144,18 @@ const concatPath = (p_path, c_path = '') => {
   .fold {
     height: 48px;
     line-height: 48px;
-    color: #fff;
+    color: @textColor;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    background-color: #002140;
+    background-color: @mainColor;
     &:hover {
       cursor: pointer;
     }
   }
 }
-/* 激活选中菜单 */
-.el-menu-item.is-active,
-.el-menu--popup .el-menu-item.is-active {
-  background-color: #1890ff !important;
-}
 </style>
-<style  lang="less">
+<style lang="less">
 .el-aside{
  .el-menu--collapse{ // 收起样式
     .el-sub-menu__title{

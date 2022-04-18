@@ -4,7 +4,6 @@ import { decode } from 'js-base64'
 import store from '../store'
 import { useI18n } from '@/hooks/web/usei18n'
 const { t } = useI18n()
-console.log(t)
 const router = createRouter({
   history: createWebHistory(),
   routes: [...routes],

@@ -17,6 +17,16 @@ export default defineConfig({
   define: {
     buildTime: JSON.stringify(new Date().toLocaleString())
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: {
+          hack: `true; @import (reference) "${resolve('src/assets/css/global.less')}";`
+        },
+        javascriptEnabled: true
+      }
+    }
+  },
   server: {
     // 服务器主机名
     host: 'localhost',

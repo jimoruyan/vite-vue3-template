@@ -27,7 +27,7 @@ export function removeToken() {
  * 判断是否已经登录
  */
 export function isAuthed() {
-  let authed = Cookies.get(AuthedKey)
+  const authed = Cookies.get(AuthedKey)
   return (authed !== undefined && authed !== '')
 }
 

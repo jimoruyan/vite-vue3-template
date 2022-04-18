@@ -1,7 +1,3 @@
-@textcolor: #4a4a4a;
-@bordercolor: #ebebeb;
-@bgcolor: #437eff;
-@fontsize: 20px;
 //弹窗样式
 .el-dialog {
   position: relative;
@@ -9,15 +5,15 @@
     height: 60px;
     line-height: 60px;
     padding: 0;
-    font-size: @fontsize;
-    color: @textcolor;
-    border-bottom: 1px solid @bordercolor;
+    font-size: 20px;
+    color: @textColor;
+    border-bottom: 1px solid @borderColor;
     &::before {
       content: '';
       width: 5px;
       display: inline-block;
       height: 20px;
-      background-color: @bgcolor;
+      background-color: #437eff;
       border-radius: 0 3px 3px 0;
       margin-right: 20px;
       vertical-align: text-bottom;
@@ -33,7 +29,7 @@
     line-height: 74px;
     text-align: center;
     padding: 0;
-    border-top: 1px solid @bordercolor;
+    border-top: 1px solid @borderColor;
     .el-button {
       width: 72px;
       height: 34px;
@@ -47,7 +43,7 @@
   thead {
     th {
       &.el-table__cell{
-        background-color: #eaf3ff;
+        background-color: @tableHeadColor;
       }
     }
   }
@@ -58,6 +54,7 @@
 // 按钮样式
 .el-button{
   height: 34px;
+  min-height: 34px;
   padding: 2px 20px;
 }
 // 输入框样式
