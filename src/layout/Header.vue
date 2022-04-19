@@ -53,8 +53,7 @@
       </el-tooltip>
       <el-dropdown size="medium" @command="handleLang">
         <div class="lang-info">
-          <img class="lang-svg" src="@/assets/icon/lang.svg">
-          <!-- <SvgIcon icon="lang"/> -->
+          <SvgIcon name="lang" style="color:#fff;font-size:18px;"/>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
@@ -103,7 +102,6 @@ const { t } = useI18n()
 
 const handleLang = command => {
   i18n.global.locale = command
-  console.log(route)
   document.title = t(route.meta.title) || ''
   store.dispatch('setLang', command)
 }

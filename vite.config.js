@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { svgBuilder } from './src/components/SvgIcon/svgBuilder'
 const { resolve } = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    svgBuilder('./src/assets/icon/') // svg图标批量引入
+  ],
   resolve: {
     alias: [
       // 别名配置

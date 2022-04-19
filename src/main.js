@@ -9,8 +9,10 @@ import locale from 'element-plus/lib/locale/lang/zh-cn'
 import store from './store'
 import * as ElIconModules from '@element-plus/icons'
 import '@/assets/css/index.less'
-
+import SvgIcon from '@/components/SvgIcon/index.vue'
 const app = createApp(App)
+
+app.component('SvgIcon', SvgIcon)
 
 console.log(`${import.meta.env.VITE_GLOB_APP_TITLE}  ${buildTime}  ${import.meta.env.MODE}`)
 for (const iconName in ElIconModules) {

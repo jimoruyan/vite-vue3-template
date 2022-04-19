@@ -1,39 +1,34 @@
 <template>
-  <!-- 展示内部图标 -->
-  <svg class="svg-icon" aria-hidden="true">
-    <use :xlink:href="iconName"></use>
-  </svg>
+    <svg :class="svgClass" aria-hidden="true" v-bind="$attrs">
+        <use :xlink:href="iconName"/>
+    </svg>
 </template>
- 
+
 <script setup>
-import { defineProps, computed } from 'vue'
- 
+import { computed, defineProps } from 'vue'
 const props = defineProps({
-  icon: {
+  name: {
     type: String,
     required: true
   }
 })
- 
-// 内部图标
-const iconName = computed(() => `#icon-${props.icon}`)
-const modulesFiles = import.meta.globEager(`./icons/${props.icon}.svg`)
-console.log(`./icons/${props.icon}.svg`, modulesFiles)
 
+const iconName = computed(() => `#icon-${props.name}`)
+
+const svgClass = computed(() => {
+  if (props.name) {
+    return `wb-icon svg icon-${props.name}`
+  }
+  return 'wb-icon svg'
+})
 </script>
- 
+
 <style lang="less" scoped>
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
- 
-.svg-external-icon {
-  mask-size: cover !important;
-  display: inline-block;
-  background-color: currentColor;
+.wb-icon.svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    overflow: hidden;
+    vertical-align: middle;
 }
 </style>
