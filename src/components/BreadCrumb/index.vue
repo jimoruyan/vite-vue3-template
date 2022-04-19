@@ -20,11 +20,18 @@ const breadcrumbData = computed(() => store.state.app.breadCrumb)
 </script>
 <style lang="less" scoped>
 .bread-crumbs-wrap{
-  background: #fff;
+  background: @mainColor;
   padding: 10px;
-  .el-breadcrumb{
+  :deep(.el-breadcrumb){
     .el-breadcrumb__item{
-
+      .el-breadcrumb__inner{
+         color: @textColor ;
+      }
+      &:not(:last-child):hover{
+        .el-breadcrumb__inner{
+          color: @textActiveColor;
+        }
+      }
     }
   }
 }

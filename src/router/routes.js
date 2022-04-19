@@ -37,11 +37,11 @@ const layoutMap = [
     name: 'Hydrology',
     component: () => RouteView,
     meta: { title: t('router.hydrology.hydrology'), icon: 'Expand' },
-    redirect: { name: 'SideMenu1Item1' },
+    redirect: { name: 'BaseInfo' },
     children: [
       {
         path: 'bsse-info',
-        name: 'BsseInfo',
+        name: 'BaseInfo',
         meta: { title: t('router.hydrology.bsseInfo'), icon: 'ForkSpoon' },
         component: () => import('@/view/hydrology/bsse-info/index.vue')
       },

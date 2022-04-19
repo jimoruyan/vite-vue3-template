@@ -9,7 +9,6 @@
     <el-container>
       <Header/>
       <div class="app-wrap">
-        <BreadCrumb/>
         <el-main>
           <router-view/>
         </el-main>
@@ -23,7 +22,6 @@
 <script setup>
 import Aside from './Aside.vue'
 import Header from './Header.vue'
-import BreadCrumb from '@/components/BreadCrumb/index.vue'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 const store = useStore()
