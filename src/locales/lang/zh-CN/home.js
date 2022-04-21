@@ -17,5 +17,10 @@ export default {
       projectCustom: '项目定制'
     },
     business: '商务合作'
-  }
+  },
+  subHeading: '综合管理大数据云平台',
+  agricultureMainHeading: '物联网·农业灌溉',
+  environmentMainHeading: '物联网·环境监测',
+  hydrologyMainHeading: '物联网·水利水文',
+  footerStatement: 'Copyright© 2019 物联网平台'
 }

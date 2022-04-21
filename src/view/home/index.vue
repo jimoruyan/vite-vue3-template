@@ -40,24 +40,24 @@
         <el-carousel-item>
           <div class="bg agriculture">
             <div class="content-text">
-              <span>物联网·农业灌溉</span>
-              <span>综合管理大数据平台</span>
+              <span>{{$t('home.agricultureMainHeading')}}</span>
+              <span>{{$t('home.subHeading')}}</span>
             </div>
           </div>
         </el-carousel-item>
         <el-carousel-item>
             <div class="bg environment">
              <div class="content-text">
-              <span>物联网·农业灌溉</span>
-              <span>综合管理大数据平台</span>
+              <span>{{$t('home.environmentMainHeading')}}</span>
+              <span>{{$t('home.subHeading')}}</span>
             </div>
           </div>
         </el-carousel-item>
         <el-carousel-item>
           <div class="bg hydrology">
              <div class="content-text">
-              <span>物联网·农业灌溉</span>
-              <span>综合管理大数据平台</span>
+              <span>{{$t('home.hydrologyMainHeading')}}</span>
+              <span>{{$t('home.subHeading')}}</span>
             </div>
           </div>
         </el-carousel-item>

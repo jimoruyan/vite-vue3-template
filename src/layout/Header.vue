@@ -7,9 +7,9 @@
   <el-header height="56px">
     <BreadCrumb class="header-left"/>
     <div class="header-right">
-      <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
-        <el-icon><full-screen @click="handleFullScreen"/></el-icon>
-      </el-tooltip>
+        <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
+          <el-icon><full-screen @click="handleFullScreen"/></el-icon>
+        </el-tooltip>
       <LangChange/>
       <el-dropdown size="medium" @command="handleCommand">
         <div class="user-info">
@@ -97,9 +97,10 @@ function handleFullScreen() {
       padding: 8px 6px;
       font-size: 20px;
       cursor: pointer;
+      margin: 0 8px;
     }
     .user-info {
-      margin: 0 8px;
+      margin: 0 16px;
       width: auto;
       text-align: right;
       color: @textActiveColor;

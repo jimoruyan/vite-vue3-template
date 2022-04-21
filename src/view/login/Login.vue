@@ -79,7 +79,7 @@ const handleLogin = () => {
       loginFormState.loading = false
       setToken('Bearer')
       setAuthed()
-      router.push({ path: '/' })
+      router.push({ path: '/agriculture' })
     }, 1000)
   })
 }
