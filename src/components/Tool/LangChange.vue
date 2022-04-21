@@ -15,14 +15,16 @@
 <script setup>
 import i18n from  '@/locales'
 import { useAppStore } from '@/store/modules/app'
-import { t } from '@/hooks/web/usei18n'
+import { useI18n } from '@/hooks/web/usei18n'
 import { useRoute } from 'vue-router'
 const appStore = useAppStore()
 const route = useRoute()
+const { t } = useI18n()
 // 语言切换
 function handleLang(command) {
   i18n.global.locale = command
   document.title = t(route.meta.title) || ''
+  console.log(document.title)
   appStore.setLang(command)
 }
 </script>
