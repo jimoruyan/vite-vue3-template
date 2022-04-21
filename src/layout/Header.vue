@@ -10,17 +10,7 @@
       <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
         <el-icon><full-screen @click="handleFullScreen"/></el-icon>
       </el-tooltip>
-      <el-dropdown size="medium" @command="handleLang">
-        <div class="lang-info">
-          <SvgIcon name="lang" style="color:#fff;font-size:18px;"/>
-        </div>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item command="zh_CN">中文</el-dropdown-item>
-            <el-dropdown-item command="en">English</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      <LangChange/>
       <el-dropdown size="medium" @command="handleCommand">
         <div class="user-info">
           <img class="user_avatar" src="@/assets/img/avatar.jpg">
@@ -39,32 +29,24 @@
 
 <script setup>
 import {  getCurrentInstance, reactive } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import screenfull from 'screenfull'
 import { removeAuthed, removeToken } from '@/utils/auth'
-import i18n from  '@/locales'
-import { useI18n } from '@/hooks/web/usei18n'
 import BreadCrumb from '@/components/BreadCrumb/index.vue'
+import { useUserStore } from '@/store/modules/user'
+import LangChange from '@/components/Tool/LangChange.vue'
+
 const { proxy } = getCurrentInstance()
 const router = useRouter()
-const store = useStore()
-const userName = store.getters.users.name
-
+const userStore = useUserStore()
+const userName = userStore.getUserInfo?.name
 const state = reactive({
   isAsideMenu: true,
   isFullScreen: false,
   switchValue: 0,
   screenfull
 })
-const route = useRoute()
-const { t } = useI18n()
-// 语言切换
-function handleLang(command) {
-  i18n.global.locale = command
-  document.title = t(route.meta.title) || ''
-  store.dispatch('setLang', command)
-}
+
 // 用户操作
 function handleCommand(command) {
   if (command === 'user') {
@@ -72,7 +54,6 @@ function handleCommand(command) {
     // router.push('/user')
   } else {
     proxy.$message.success('退出成功')
-    store.dispatch('clearUser')
     router.replace('/login')
     removeAuthed()
     removeToken()

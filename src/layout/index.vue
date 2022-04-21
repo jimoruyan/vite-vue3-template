@@ -5,7 +5,7 @@
  -->
 <template>
   <el-container class="layout">
-    <Aside v-show="isAsideMenu"/>
+    <Aside/>
     <el-container>
       <Header/>
       <div class="app-wrap">
@@ -22,10 +22,6 @@
 <script setup>
 import Aside from './Aside.vue'
 import Header from './Header.vue'
-import { useStore } from 'vuex'
-import { computed } from 'vue'
-const store = useStore()
-const isAsideMenu = computed(() => store.getters.asideMenu)
 
 </script>
 <style lang="less" scoped>

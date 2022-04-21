@@ -43,12 +43,11 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
 import { encode } from 'js-base64'
 import { setToken, setAuthed } from '@/utils/auth'
-
+import { useUserStore } from '@/store/modules/user'
 const router = useRouter()
-const store = useStore()
+const userStore = useUserStore()
 const loginFormRef = ref()
 
 const loginFormState = reactive({
@@ -76,9 +75,8 @@ const handleLogin = () => {
       const users = { role: loginFormState.name === 'admin' ? 'admin' : '', username: loginFormState.name }
       Object.assign(params, users)
       sessionStorage.setItem('jwt', encode(JSON.stringify(params)))
-      store.dispatch('setUser', params)
+      userStore.setUserInfo(params)
       loginFormState.loading = false
-
       setToken('Bearer')
       setAuthed()
       router.push({ path: '/' })

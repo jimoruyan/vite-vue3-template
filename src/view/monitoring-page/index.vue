@@ -11,12 +11,12 @@
         </div>
       </div>
       <div class="header-center">
-        <div class="header-page_button" @click="router.push({ path: '/data-preview' })"> 系统总览 </div>
+        <div class="header-page_button" @click="router.push({ path: '/agriculture' })"> 系统总览 </div>
         <div class="header-page_title">物联网监控平台</div>
-        <div class="header-page_button" @click="router.push({ path: '/data-preview' })"> 数据监控 </div>
+        <div class="header-page_button" @click="router.push({ path: '/agriculture' })"> 数据监控 </div>
       </div>
       <div class="header-right">
-        <span @click="router.push({ path: '/data-preview' })"> 控制台</span>
+        <span @click="router.push({ path: '/agriculture' })"> 控制台</span>
       </div>
     </div>
   </div>

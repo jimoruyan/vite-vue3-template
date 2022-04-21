@@ -11,11 +11,11 @@
 </template>
 <script setup>
 import { computed  } from 'vue'
-import { useStore } from 'vuex'
 import { ArrowRight } from '@element-plus/icons'
+import { useAppStore } from '@/store/modules/app'
 
-const store = useStore()
-const breadcrumbData = computed(() => store.state.app.breadCrumb)
+const userStore = useAppStore()
+const breadcrumbData = computed(() => userStore.getBreadCrumb)
 
 </script>
 <style lang="less" scoped>

@@ -20,7 +20,7 @@
   </div>
 </template>
 <script setup>
-import { reactive, defineExpose, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import Form from '@/components/Form/Form.vue'
 import { formRules } from '@/utils/config.js'
 const state = reactive({

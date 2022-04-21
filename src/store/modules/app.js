@@ -1,40 +1,28 @@
-import { ENV, BREAD_CRUMB, AISIDE_MENU, LANG } from '../mutation-types'
+import { defineStore } from 'pinia'
+import { LANG_KEY } from '@/store/cache-types.js'
 
-const app = {
-  state: {
-    env: null,
+export const useAppStore = defineStore({
+  id: 'app',
+  state: () => ({
+    counter: 0,
     lang: 'zh_CN',
-    asideMenu: true,
     breadCrumb: []
-  },
-  mutations: {
-    [ENV](state, payload) {
-      state.env = payload
+  }),
+  getters: {
+    getLang() {
+      return this.lang || JSON.parse(localStorage.getItem(LANG_KEY))
     },
-    [BREAD_CRUMB](state, payload) {
-      state.breadCrumb = payload
-    },
-    [AISIDE_MENU](state, payload) {
-      state.asideMenu = payload
-    },
-    [LANG](state, payload) {
-      state.lang = payload
+    getBreadCrumb() {
+      return this.breadCrumb
     }
   },
   actions: {
-    setEnv({ commit }, payload) {
-      commit(ENV, payload)
+    setLang(lang) {
+      this.lang = lang
+      localStorage.setItem(LANG_KEY, lang)
     },
-    setBreadCrumb({ commit }, payload) {
-      commit(BREAD_CRUMB, payload)
-    },
-    setAsideMenu({ commit }, payload) {
-      commit(AISIDE_MENU, payload)
-    },
-    setLang({ commit }, payload) {
-      commit(LANG, payload)
+    setBreadCrumb(breadCrumb) {
+      this.breadCrumb = breadCrumb
     }
   }
-}
-
-export default app
+})

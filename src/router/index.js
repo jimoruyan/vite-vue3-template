@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './routes.js'
 import { decode } from 'js-base64'
-import store from '../store'
+import { useAppStore } from '@/store/modules/app'
 import { useI18n } from '@/hooks/web/usei18n'
 const { t } = useI18n()
 const router = createRouter({
@@ -17,13 +17,14 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  const appStore = useAppStore()
   document.title = (to.meta && t(to.meta.title)) || ''
   // 设置面包屑
   const breadCrumbList = []
   to.matched.forEach(item => {
     breadCrumbList.push({ name: item.meta.title, path: item.path })
   })
-  store.dispatch('setBreadCrumb', breadCrumbList)
+  appStore.setBreadCrumb(breadCrumbList)
   const jwt = sessionStorage.getItem('jwt') || ''
 
   if (to.path === '/login') {

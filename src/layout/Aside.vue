@@ -56,12 +56,12 @@
 <script setup>
 import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { useUserStore } from '@/store/modules/user'
 
 const route = useRoute()
-const store = useStore()
+const userStore = useUserStore()
 const state = reactive({ isCollapse: false })
-const routers = computed(() => store.state.user.routers)
+const routers = computed(() => userStore.getRouters)
 const changeCollapse = () => {
   state.isCollapse = !state.isCollapse
 }
