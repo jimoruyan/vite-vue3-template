@@ -24,7 +24,6 @@ const { t } = useI18n()
 function handleLang(command) {
   i18n.global.locale = command
   document.title = t(route.meta.title) || ''
-  console.log(document.title)
   appStore.setLang(command)
 }
 </script>

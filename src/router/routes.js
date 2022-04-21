@@ -17,25 +17,25 @@ const layoutMap = [
       {
         path: 'data-preview',
         name: 'AgricultureDataPreview',
-        component: () => import('@/view/data-preview/index.vue'),
+        component: () => import('@/view/agriculture/data-preview/index.vue'),
         meta: { title: t('router.agriculture.dataPreview'), icon: 'User' }
       },
       {
         path: 'data-query',
         name: 'AgricultureDataQuery',
-        component: () => import('@/view/data-query/index.vue'),
+        component: () => import('@/view/agriculture/data-query/index.vue'),
         meta: { title: t('router.agriculture.dataQuery'), icon: 'UserFilled' }
       },
       {
         path: 'data-analysis',
         name: 'AgricultureDataAnalysis',
-        component: () => import('@/view/data-analysis/index.vue'),
+        component: () => import('@/view/agriculture/data-analysis/index.vue'),
         meta: { title: t('router.agriculture.dataAnalysis'), icon: 'UserFilled' }
       },
       {
         path: 'site-location',
         name: 'AgricultureSiteLocation',
-        component: () => import('@/view/site-location/index.vue'),
+        component: () => import('@/view/agriculture/site-location/index.vue'),
         meta: { title: t('router.agriculture.siteLocation'), icon: 'UserFilled' }
       }
     ]
@@ -55,25 +55,25 @@ const layoutMap = [
       {
         path: 'data-preview',
         name: 'EnvironmentDataPreview',
-        component: () => import('@/view/data-preview/index.vue'),
+        component: () => import('@/view/environment/data-preview/index.vue'),
         meta: { title: t('router.environment.dataPreview'), icon: 'User' }
       },
       {
         path: 'data-query',
         name: 'EnvironmentDataQuery',
-        component: () => import('@/view/data-query/index.vue'),
+        component: () => import('@/view/environment/data-query/index.vue'),
         meta: { title: t('router.environment.dataQuery'), icon: 'UserFilled' }
       },
       {
         path: 'data-analysis',
         name: 'EnvironmentDataAnalysis',
-        component: () => import('@/view/data-analysis/index.vue'),
+        component: () => import('@/view/environment/data-analysis/index.vue'),
         meta: { title: t('router.environment.dataAnalysis'), icon: 'UserFilled' }
       },
       {
         path: 'site-location',
         name: 'EnvironmentSiteLocation',
-        component: () => import('@/view/site-location/index.vue'),
+        component: () => import('@/view/environment/site-location/index.vue'),
         meta: { title: t('router.environment.siteLocation'), icon: 'UserFilled' }
       }
     ]
@@ -88,8 +88,7 @@ const layoutMap = [
       {
         path: 'monitoring-page',
         name: 'HydrologyMonitoringPage',
-        meta: { title: t('router.hydrology.monitoringPage'), icon: 'Connection' },
-        component: () => import('@/view/monitoring-page/index.vue')
+        meta: { title: t('router.hydrology.monitoringPage'), icon: 'Connection' }
       },
       {
         path: 'bsse-info',
@@ -121,24 +120,23 @@ const layoutMap = [
 
 const routes = [
   { path: '/', name: 'Layout', meta: { title: t('router.home') }, redirect: { name: 'Home' }, component: Layout, children: [...layoutMap] },
-  { path: '/test', name: 'Test', meta: { title: t('router.test'), whiteList: true }, component: () => import('@/view/side-menu2/item-menu4/index.vue') },
   { path: '/home', name: 'Home', meta: { title: t('router.home'), whiteList: true }, component: () => import('@/view/home/index.vue') },
   {
     path: '/agriculture/monitoring-page',
     name: 'AgricultureMonitoringPage',
-    component: () => import('@/view/monitoring-page/index.vue'),
+    component: () => import('@/view/monitoring-page/AgricultureScreen.vue'),
     meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
   },
   {
     path: '/environment/monitoring-page',
     name: 'EnvironmentMonitoringPage',
-    component: () => import('@/view/monitoring-page/index.vue'),
+    component: () => import('@/view/monitoring-page/EnvironmentScreen.vue'),
     meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
   },
   {
     path: '/hydrology/monitoring-page',
     name: 'HydrologyMonitoringPage',
-    component: () => import('@/view/monitoring-page/index.vue'),
+    component: () => import('@/view/monitoring-page/HydrologyScreen.vue'),
     meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
   },
   {
