@@ -40,7 +40,7 @@
         <el-carousel-item>
           <div class="bg agriculture">
             <div class="content-text">
-              <span>{{$t('home.agricultureMainHeading')}}</span>
+              <span>{{$t('home.agriculture')}}</span>
               <span>{{$t('home.subHeading')}}</span>
             </div>
           </div>
@@ -48,7 +48,7 @@
         <el-carousel-item>
             <div class="bg environment">
              <div class="content-text">
-              <span>{{$t('home.environmentMainHeading')}}</span>
+              <span>{{$t('home.environment')}}</span>
               <span>{{$t('home.subHeading')}}</span>
             </div>
           </div>
@@ -56,7 +56,7 @@
         <el-carousel-item>
           <div class="bg hydrology">
              <div class="content-text">
-              <span>{{$t('home.hydrologyMainHeading')}}</span>
+              <span>{{$t('home.hydrology')}}</span>
               <span>{{$t('home.subHeading')}}</span>
             </div>
           </div>
@@ -74,7 +74,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const handleSelect = (key, keyPath) => {
   if (key.indexOf('/') > -1) {
-    router.push({ path: key })
+    router.push({ path: key, query: { type: key } })
   }
 }
 </script>
@@ -157,13 +157,13 @@ const handleSelect = (key, keyPath) => {
       :deep(.el-carousel__container){
         height: calc(100vh - 130px) ;
         .agriculture{
-          background-image: url('./img/agriculture.jpg');
+          background-image: url('/image/home/agriculture.jpg');
         }
         .environment{
-          background-image: url('./img/environment.jpg');
+          background-image: url('/image/home/environment.jpg');
         }
         .hydrology{
-          background-image: url('./img/hydrology.jpg');
+          background-image: url('/image/home/hydrology.jpg');
         }
         .bg {
           width: 100%;

@@ -31,6 +31,9 @@ router.beforeEach((to, from, next) => {
     // 如果是登录状态 跳转到主页
     jwt ? next('/') : next()
   } else {
+    if (to.meta && to.meta.whiteList) {
+      next()
+    }
     if (from.name === 'Login' && !jwt) {
       next(false)
       return false
@@ -43,10 +46,13 @@ router.beforeEach((to, from, next) => {
         return false
       }
       next()
-    } else if (to.meta && to.meta.whiteList) {
-      next()
     } else {
-      next('/login')
+      let type = ''
+      if (to.query.type) {
+        type = to.query.type.replace('/', '')
+      }
+      console.log(type)
+      next({ path: '/login', query: { type } })
     }
   }
 })

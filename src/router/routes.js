@@ -140,7 +140,7 @@ const routes = [
     meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
   },
   {
-    path: '/login',
+    path: '/login/:type?',
     name: 'Login',
     meta: { title: t('router.login') },
     component: () => import('@/view/login/Login.vue')

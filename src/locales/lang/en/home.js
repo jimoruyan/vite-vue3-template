@@ -19,8 +19,8 @@ export default {
     business: 'business'
   },
   subHeading: 'Integrated Management Platform',
-  agricultureMainHeading: 'Internet-Enabled Environments and Agriculture',
-  environmentMainHeading: 'Internet-Enabled Environments and Environment',
-  hydrologyMainHeading: 'Internet-Enabled Environments and Hydrology',
+  agriculture: 'Internet-Enabled Environments and Agriculture',
+  environment: 'Internet-Enabled Environments and Environment',
+  hydrology: 'Internet-Enabled Environments and Hydrology',
   footerStatement: 'Copyright© 2019 IoT Platform'
 }
