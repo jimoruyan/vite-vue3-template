@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrapper">
     <el-header>
-      <div @click="router.push({ path: '/home' })" class="title">首页</div>
+      <div @click="router.push({ path: '/home' })" class="title">{{ $t('home.home') }}</div>
       <LangChange/>
     </el-header>
     <div class="login">
@@ -12,7 +12,7 @@
       <el-card class="login-center">
         <template #header>
           <div class="card_header">
-            <span>用户登录</span>
+            <span>{{ $t('home.login.form.title') }}</span>
           </div>
         </template>
         <el-form ref="loginFormRef" :model="loginFormState" :rules="rules">
@@ -21,7 +21,7 @@
               v-model.trim="loginFormState.name"
               prefix-icon="el-icon-user-solid"
               maxlength="32"
-              placeholder="请输入账号"
+              :placeholder="$t('home.login.form.accountPlaceholder')"
               clearable/>
           </el-form-item>
           <el-form-item prop="pwd">
@@ -30,12 +30,12 @@
               prefix-icon="el-icon-lock"
               maxlength="16"
               show-password
-              placeholder="请输入密码"
+              :placeholder="$t('home.login.form.passwordPlaceholder')"
               clearable
               @keyup.enter.exact="handleLogin"/>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" style="width: 100%" :loading="loginFormState.loading" @click="handleLogin">登 录
+            <el-button type="primary" style="width: 100%" :loading="loginFormState.loading" @click="handleLogin">{{$t('home.login.form.loginButtom')}}
             </el-button>
           </el-form-item>
         </el-form>
@@ -51,10 +51,12 @@ import { encode } from 'js-base64'
 import { setToken, setAuthed } from '@/utils/auth'
 import { useUserStore } from '@/store/modules/user'
 import LangChange from '@/components/Tool/LangChange.vue'
+import { useI18n } from '@/hooks/web/usei18n'
+
 const router = useRouter()
 const userStore = useUserStore()
 const loginFormRef = ref()
-
+const { t } = useI18n()
 const loginFormState = reactive({
   name: 'admin',
   pwd: '123456',
@@ -62,10 +64,9 @@ const loginFormState = reactive({
 })
 
 const rules = {
-  name: [{ required: true, message: '账号不能为空', trigger: 'blur' }],
+  name: [{ required: true, message: t('home.login.form.accountRequired'), trigger: 'blur' }],
   pwd: [
-    { required: true, message: '密码不能为空', trigger: 'blur' },
-    { min: 5, max: 16, message: '密码长度为5-16位', trigger: 'blur' }
+    { required: true, message: t('home.login.form.passwordRequired'), trigger: 'blur' }
   ]
 }
 const route = useRoute()
@@ -94,8 +95,9 @@ const handleLogin = () => {
 
 <style lang="less" scoped>
 .login-wrapper {
-  background:v-bind(bgURL);
-  background-position: 100%;
+  background-image:v-bind(bgURL);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   .el-header{
     display: flex;
     justify-content: end;
@@ -105,6 +107,7 @@ const handleLogin = () => {
     .title{
       color: #fff;
       cursor: pointer;
+      font-size: 16px;
       margin-right: 20px;
     }
     .el-dropdown{

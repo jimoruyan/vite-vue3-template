@@ -3,7 +3,7 @@ import { getToken } from '@/utils/auth'
 
 axios.defaults.timeout = 3600000
 axios.defaults.baseURL = import.meta.env.VITE_GLOB_BASE_URL
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/'
+// axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/'
 
 // http request 拦截器
 axios.interceptors.request.use((config) => {

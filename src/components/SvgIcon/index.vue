@@ -24,7 +24,7 @@ const svgClass = computed(() => {
 </script>
 
 <style lang="less" scoped>
-.wb-icon.svg {
+svg {
     width: 1em;
     height: 1em;
     fill: currentColor;

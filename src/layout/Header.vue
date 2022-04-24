@@ -4,15 +4,15 @@
  * @date: 2021-11-26
  -->
 <template>
-  <el-header height="56px">
+  <el-header>
     <BreadCrumb class="header-left"/>
     <div class="header-right">
-        <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
-          <el-icon><full-screen @click="handleFullScreen"/></el-icon>
-        </el-tooltip>
-      <LangChange/>
+      <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
+        <el-icon class="head-item"><full-screen @click="handleFullScreen"/></el-icon>
+      </el-tooltip>
+      <LangChange class="head-item"/>
       <el-dropdown size="medium" @command="handleCommand">
-        <div class="user-info">
+        <div class="user-info head-item">
           <img class="user_avatar" src="@/assets/img/avatar.jpg">
           <span class="username">{{ userName }}</span>
         </div>

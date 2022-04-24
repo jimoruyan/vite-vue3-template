@@ -1,5 +1,6 @@
 export default {
   IOT: '云物联',
+  home: '首页',
   menu: {
     agriculture: '农业',
     environment: '环保',
@@ -22,5 +23,19 @@ export default {
   agriculture: '物联网·农业灌溉',
   environment: '物联网·环境监测',
   hydrology: '物联网·水利水文',
-  footerStatement: 'Copyright© 2019 物联网平台'
+  footerStatement: 'Copyright© 2019 物联网平台',
+  login: {
+    language: '语言',
+    form: {
+      title: '欢迎登录',
+      account: '账号',
+      accountPlaceholder: '请输入账号',
+      password: '密码',
+      passwordPlaceholder: '请输入密码',
+      loginButtom: '登 录',
+      accountRequired: '账号不能为空',
+      passwordRequired: '密码不能为空'
+    },
+    loginUsernameError: '用户名或密码错误'
+  }
 }

@@ -1,7 +1,8 @@
 <template>
   <el-dropdown size="medium" @command="handleLang">
     <div class="lang-info">
-      <SvgIcon name="lang" style="color:#fff;font-size:18px;"/>
+      <SvgIcon name="lang"/>
+      <span class="lang-text">语言</span>
     </div>
     <template #dropdown>
       <el-dropdown-menu>
@@ -20,6 +21,17 @@ import { useRoute } from 'vue-router'
 const appStore = useAppStore()
 const route = useRoute()
 const { t } = useI18n()
+defineProps({
+  color: {
+    type: String,
+    default: () => '#fff'
+  },
+  fontSize: {
+    type: String,
+    default: () => '18px'
+  }
+})
+
 // 语言切换
 function handleLang(command) {
   i18n.global.locale = command
@@ -27,3 +39,19 @@ function handleLang(command) {
   appStore.setLang(command)
 }
 </script>
+<style lang="less" scoped>
+.lang-info{
+  cursor: pointer;
+  .lang-text{
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  svg{
+    width:v-bind(fontSize);
+    height:v-bind(fontSize);
+    color: v-bind(color);
+  }
+}
+</style>

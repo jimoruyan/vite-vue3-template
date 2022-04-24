@@ -51,7 +51,6 @@ router.beforeEach((to, from, next) => {
       if (to.query.type) {
         type = to.query.type.replace('/', '')
       }
-      console.log(type)
       next({ path: '/login', query: { type } })
     }
   }
