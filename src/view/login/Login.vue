@@ -83,9 +83,10 @@ const handleLogin = () => {
   })
 }
 </script>
-
 <style lang="less" scoped>
 .login-wrapper {
+  background: url('@/assets/img/login.jpg');
+  background-size: 100% 100%;
   .el-header{
     display: flex;
     justify-content: end;
@@ -109,35 +110,16 @@ const handleLogin = () => {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    .content-text {
-      display: flex;
-      flex-direction: column;
-      margin: 0 200px 200px 0;
-
-      span {
-        font-weight: 700;
-        margin-bottom: 10px;
-
-        &:nth-child(1) {
-          font-size: 40px;
-        }
-
-        &:nth-child(2) {
-          font-size: 25px;
-        }
-      }
-    }
-
     .login-center {
       width: 396px;
       height: auto;
       border: none;
       background-color: rgba(255, 255, 255,.1);
     }
-
     .card_header {
       font-size: 18px;
       font-weight:700;
+      color: #fff;
       text-align: center;
     }
   }

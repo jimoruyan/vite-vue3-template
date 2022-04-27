@@ -6,7 +6,7 @@
 <template>
   <el-aside :class="state.isCollapse ? `width64` : `width200`">
     <div class="logo">
-      <img src="@/assets/img/logo.png" alt="logo" draggable="false">
+      <img src="@/assets/img/avatar.jpg" alt="logo" draggable="false">
     </div>
     <el-menu
       router
