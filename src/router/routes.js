@@ -10,11 +10,6 @@ const layoutMap = [
     redirect: { name: 'AgricultureDataPreview' },
     children: [
       {
-        path: 'monitoring-page',
-        name: 'AgricultureMonitoringPage',
-        meta: { title: t('router.agriculture.monitoringPage'), icon: 'Connection' }
-      },
-      {
         path: 'data-preview',
         name: 'AgricultureDataPreview',
         component: () => import('@/view/agriculture/data-preview/index.vue'),
@@ -47,11 +42,6 @@ const layoutMap = [
     meta: { title: t('router.environment.environment'), icon: 'Expand' },
     redirect: { name: 'EnvironmentDataPreview' },
     children: [
-      {
-        path: 'monitoring-page',
-        name: 'EnvironmentMonitoringPage',
-        meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
-      },
       {
         path: 'data-preview',
         name: 'EnvironmentDataPreview',
@@ -86,11 +76,6 @@ const layoutMap = [
     redirect: { name: 'BaseInfo' },
     children: [
       {
-        path: 'monitoring-page',
-        name: 'HydrologyMonitoringPage',
-        meta: { title: t('router.hydrology.monitoringPage'), icon: 'Connection' }
-      },
-      {
         path: 'bsse-info',
         name: 'BaseInfo',
         meta: { title: t('router.hydrology.bsseInfo'), icon: 'ForkSpoon' },
@@ -119,26 +104,8 @@ const layoutMap = [
 ]
 
 const routes = [
-  { path: '/', name: 'Layout', meta: { title: t('router.home') }, redirect: { name: 'Home' }, component: Layout, children: [...layoutMap] },
+  { path: '/', name: 'Layout', meta: { title: t('router.home') }, redirect: { name: 'AgricultureDataPreview' }, component: Layout, children: [...layoutMap] },
   { path: '/home', name: 'Home', meta: { title: t('router.home'), whiteList: true }, component: () => import('@/view/home/index.vue') },
-  {
-    path: '/agriculture/monitoring-page',
-    name: 'AgricultureMonitoringPage',
-    component: () => import('@/view/monitoring-page/AgricultureScreen.vue'),
-    meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
-  },
-  {
-    path: '/environment/monitoring-page',
-    name: 'EnvironmentMonitoringPage',
-    component: () => import('@/view/monitoring-page/EnvironmentScreen.vue'),
-    meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
-  },
-  {
-    path: '/hydrology/monitoring-page',
-    name: 'HydrologyMonitoringPage',
-    component: () => import('@/view/monitoring-page/HydrologyScreen.vue'),
-    meta: { title: t('router.environment.monitoringPage'), icon: 'Connection' }
-  },
   {
     path: '/login/:type?',
     name: 'Login',

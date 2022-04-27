@@ -1,14 +1,9 @@
 <template>
   <div class="login-wrapper">
     <el-header>
-      <div @click="router.push({ path: '/home' })" class="title">{{ $t('home.home') }}</div>
       <LangChange/>
     </el-header>
     <div class="login">
-      <div class="content-text">
-        <span>{{ $t(`home.${type}`) }}</span>
-        <span>{{ $t('home.subHeading') }}</span>
-      </div>
       <el-card class="login-center">
         <template #header>
           <div class="card_header">
@@ -46,7 +41,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { encode } from 'js-base64'
 import { setToken, setAuthed } from '@/utils/auth'
 import { useUserStore } from '@/store/modules/user'
@@ -62,16 +57,12 @@ const loginFormState = reactive({
   pwd: '123456',
   loading: false
 })
-
 const rules = {
   name: [{ required: true, message: t('home.login.form.accountRequired'), trigger: 'blur' }],
   pwd: [
     { required: true, message: t('home.login.form.passwordRequired'), trigger: 'blur' }
   ]
 }
-const route = useRoute()
-const type = route.query.type || 'agriculture'
-const bgURL = `url("/image/home/${type}.jpg")`
 const handleLogin = () => {
   loginFormRef.value.validate(valid => {
     if (!valid) {
@@ -87,7 +78,7 @@ const handleLogin = () => {
       loginFormState.loading = false
       setToken('Bearer')
       setAuthed()
-      router.push({ path: '/agriculture' })
+      router.push({ path: '/' })
     }, 1000)
   })
 }
@@ -95,9 +86,6 @@ const handleLogin = () => {
 
 <style lang="less" scoped>
 .login-wrapper {
-  background-image:v-bind(bgURL);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   .el-header{
     display: flex;
     justify-content: end;
