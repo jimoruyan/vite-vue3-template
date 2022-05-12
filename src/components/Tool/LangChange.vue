@@ -21,16 +21,6 @@ import { useRoute } from 'vue-router'
 const appStore = useAppStore()
 const route = useRoute()
 const { t } = useI18n()
-defineProps({
-  color: {
-    type: String,
-    default: () => '#fff'
-  },
-  fontSize: {
-    type: String,
-    default: () => '18px'
-  }
-})
 
 // 语言切换
 function handleLang(command) {
@@ -42,16 +32,12 @@ function handleLang(command) {
 <style lang="less" scoped>
 .lang-info{
   cursor: pointer;
+  font-size: 18px;
   .lang-text{
     color: #fff;
     font-size: 16px;
     display: inline-block;
     vertical-align: middle;
-  }
-  svg{
-    width:v-bind(fontSize);
-    height:v-bind(fontSize);
-    color: v-bind(color);
   }
 }
 </style>

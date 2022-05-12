@@ -40,3 +40,13 @@ watch(state, newVal => {
 })
 
 </script>
+<style lang="less" scoped>
+.el-pagination{
+  padding: 10px;
+  :deep(.el-select){
+    .el-input__inner{
+      height: 28px;
+    }
+  }
+}
+</style>
