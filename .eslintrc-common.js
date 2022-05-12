@@ -32,11 +32,11 @@ module.exports = {
     "vue/no-multi-spaces": ["error", {
       "ignoreProperties": false
     }],
-    // @fixable 去除标签手尾空格
+    // @fixable 去除标签首尾空格
     "vue/html-closing-bracket-spacing": ["error", {
       "startTag": "never",
       "endTag": "never",
-      "selfClosingTag": "never"
+      "selfClosingTag": "always"
     }],
     // @fixable 使用两个空格进行缩进
     'indent': [

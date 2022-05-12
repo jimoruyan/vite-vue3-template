@@ -1,7 +1,7 @@
 <template>
-    <svg :class="svgClass" aria-hidden="true" v-bind="$attrs">
-        <use :xlink:href="iconName"/>
-    </svg>
+  <svg :class="svgClass" aria-hidden="true" v-bind="$attrs">
+    <use :xlink:href="iconName" />
+  </svg>
 </template>
 
 <script setup>
@@ -25,10 +25,10 @@ const svgClass = computed(() => {
 
 <style lang="less" scoped>
 svg {
-    width: 1em;
-    height: 1em;
-    fill: currentColor;
-    overflow: hidden;
-    vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  overflow: hidden;
+  vertical-align: middle;
 }
 </style>

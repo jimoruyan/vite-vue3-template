@@ -104,8 +104,20 @@ const layoutMap = [
 ]
 
 const routes = [
-  { path: '/', name: 'Layout', meta: { title: t('router.home') }, redirect: { name: 'AgricultureDataPreview' }, component: Layout, children: [...layoutMap] },
-  { path: '/home', name: 'Home', meta: { title: t('router.home'), whiteList: true }, component: () => import('@/view/home/index.vue') },
+  {
+    path: '/',
+    name: 'Layout',
+    meta: { title: t('router.home') },
+    redirect: { name: 'AgricultureDataPreview' },
+    component: Layout,
+    children: [...layoutMap]
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    meta: { title: t('router.home'), whiteList: true },
+    component: () => import('@/view/home/index.vue')
+  },
   {
     path: '/login/:type?',
     name: 'Login',

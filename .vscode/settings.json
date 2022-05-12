@@ -8,4 +8,60 @@
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.displayLanguage": "zh-CN",
   "i18n-ally.enabledFrameworks": ["vue", "react"],
+  "tabnine.experimentalAutoImports": true,
+  "typescript.validate.enable": false,
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.options": {
+    "extensions": [".js", ".vue"]
+  },
+  "eslint.validate": ["javascript", "typescript", "html", "vue"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.codeAction.disableRuleComment": {},
+  "eslint.alwaysShowStatus": true,
+  "editor.maxTokenizationLineLength": 200000,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.iconTheme": "material-icon-theme",
+  "git.autofetch": true,
+  "editor.renderWhitespace": "none",
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "eslint.probe": ["javascript", "javascriptreact", "html", "vue", "markdown"],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[plaintext]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "timeline.excludeSources": ["timeline.localHistory"],
+  "editor.tabSize": 2,
+  "i18n-ally.extract.keyMaxLength": 2
 }

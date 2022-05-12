@@ -12,12 +12,15 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, getCurrentInstance } from 'vue'
+import { reactive, watch, getCurrentInstance } from 'vue'
 
 defineProps({
-  queryData: { // 查询数据
+  queryData: {
+    // 查询数据
     type: Object,
-    default: () => { return { pageSize: 10, currentPage: 1 } }
+    default: () => {
+      return { pageSize: 10, currentPage: 1 }
+    }
   },
   total: {
     type: Number,
@@ -35,18 +38,17 @@ const state = reactive({
 
 const emit = defineEmits(['pagination'])
 
-watch(state, newVal => {
+watch(state, (newVal) => {
   emit('pagination', newVal)
 })
-
 </script>
 <style lang="less" scoped>
-.el-pagination{
-  padding: 10px;
-  :deep(.el-select){
-    .el-input__inner{
-      height: 28px;
+  .el-pagination {
+    padding: 10px;
+    :deep(.el-select) {
+      .el-input__inner {
+        height: 28px;
+      }
     }
   }
-}
 </style>
