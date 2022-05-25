@@ -1,5 +1,5 @@
 import Layout from '@/layout/index.vue'
-import RouteView from '@/components/RouteView.vue'
+import RouteView from '@/components/Tool/RouteView.vue'
 import { t } from '@/hooks/web/usei18n'
 const layoutMap = [
   {

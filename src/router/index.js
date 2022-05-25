@@ -4,16 +4,10 @@ import { decode } from 'js-base64'
 import { useAppStore } from '@/store/modules/app'
 import { useI18n } from '@/hooks/web/usei18n'
 const { t } = useI18n()
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes: [...routes],
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
+  scrollBehavior: () => ({ left: 0, top: 0 })
 })
 
 router.beforeEach((to, from, next) => {
@@ -47,9 +41,11 @@ router.beforeEach((to, from, next) => {
       }
       next()
     } else {
-      next({ path: '/login'})
+      next({ path: '/login' })
     }
   }
 })
 
-export default router
+export function setupRouter(app) {
+  app.use(router)
+}

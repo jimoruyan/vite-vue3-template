@@ -12,7 +12,7 @@ export function getToken() {
 
 /**
  * 保存服务器返回的token，登录时如果有token，需要手动调用本函数保存
- * 
+ *
  * @param {string} token 服务器返回的token
  */
 export function setToken(token) {
@@ -28,7 +28,7 @@ export function removeToken() {
  */
 export function isAuthed() {
   const authed = Cookies.get(AuthedKey)
-  return (authed !== undefined && authed !== '')
+  return authed !== undefined && authed !== ''
 }
 
 /**

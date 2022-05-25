@@ -1,29 +1,33 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router/index'
-import ElementPlus from 'element-plus'
-import { setupStore } from '@/store'
 import '@/assets/css/reset.css'
 import 'element-plus/dist/index.css'
-import locale from 'element-plus/lib/locale/lang/zh-cn'
-import * as ElIconModules from '@element-plus/icons'
 import '@/assets/css/index.less'
-import SvgIcon from '@/components/SvgIcon/index.vue'
+import envVariables from '../public/env-variables.js'
+import ElementPlus from 'element-plus'
+import locale from 'element-plus/lib/locale/lang/zh-cn'
+import App from './App.vue'
+import { createApp } from 'vue'
+import { setupRouter } from './router/index'
+import { setupStore } from '@/store'
+import { registerGlobComp } from '@/components/registerGlobComp'
 import { setupI18n } from '@/locales'
 
-console.log(`${import.meta.env.VITE_GLOB_APP_TITLE}  ${buildTime}  ${import.meta.env.MODE}`)
+// 挂载环境变量
+window.envVariables = envVariables
+
+// 环境及打包信息
+console.log(`${envVariables.title}  ${buildTime}  ${import.meta.env.MODE}`)
 
 function bootstrap() {
   const app = createApp(App)
-  for (const iconName in ElIconModules) {
-    if (Reflect.has(ElIconModules, iconName)) {
-      app.component(iconName, ElIconModules[iconName])
-    }
-  }
+  // 路由
+  setupRouter(app)
+  // store
   setupStore(app)
+  // 多语言
   setupI18n(app)
-  app.component('SvgIcon', SvgIcon)
+  // 全局组件注册
+  registerGlobComp(app)
 
-  app.use(router).use(ElementPlus, { locale }).mount('#app')
+  app.use(ElementPlus, { locale }).mount('#app')
 }
 bootstrap()

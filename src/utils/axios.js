@@ -6,28 +6,31 @@ axios.defaults.baseURL = import.meta.env.VITE_GLOB_BASE_URL
 // axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/'
 
 // http request 拦截器
-axios.interceptors.request.use((config) => {
-  if (!config.headers.Authorization) {
-    config.headers.Authorization = getToken() || ''
+axios.interceptors.request.use(
+  (config) => {
+    if (!config.headers.Authorization) {
+      config.headers.Authorization = getToken() || ''
+    }
+    return config
+  },
+  (err) => {
+    return Promise.reject(err)
   }
-  return config
-},
-(err) => {
-  return Promise.reject(err)
-}
 )
 // http response 拦截器
-axios.interceptors.response.use((response) => {
-  return Promise.resolve(response)
-},
-(error) => {
-  return Promise.reject(error)
-}
+axios.interceptors.response.use(
+  (response) => {
+    return Promise.resolve(response)
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
 )
 // get 方法封装
 export function get(url, params = {}) {
   return new Promise((resolve, reject) => {
-    axios.get(url, { params: params })
+    axios
+      .get(url, { params: params })
       .then((response) => {
         resolve(response.data)
       })
@@ -59,10 +62,10 @@ export function exportFile(url, params = {}) {
         params: params,
         responseType: 'blob'
       })
-      .then(response => {
+      .then((response) => {
         resolve(response)
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err)
       })
   })
@@ -77,10 +80,10 @@ export function upload(url, data = {}, contentType = 'application/json') {
       data,
       headers: { 'Content-Type': contentType }
     }).then(
-      response => {
+      (response) => {
         resolve(response.data)
       },
-      err => {
+      (err) => {
         reject(err)
       }
     )
