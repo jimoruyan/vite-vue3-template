@@ -1,7 +1,6 @@
 // 弹窗样式
 .el-dialog {
   position: relative;
-
   &__header {
     height: 60px;
     line-height: 60px;
@@ -9,7 +8,6 @@
     font-size: 20px;
     color: @textColor;
     border-bottom: 1px solid @borderColor;
-
     &::before {
       content: '';
       width: 5px;
@@ -21,11 +19,9 @@
       vertical-align: text-bottom;
     }
   }
-
   &__body {
     padding: 20px 40px;
   }
-
   &__footer {
     bottom: 0;
     width: 100%;
@@ -34,7 +30,6 @@
     text-align: center;
     padding: 0;
     border-top: 1px solid @borderColor;
-
     .el-button {
       width: 72px;
       height: 34px;
@@ -42,7 +37,6 @@
     }
   }
 }
-
 // 表格样式
 .el-table {
   thead {
@@ -52,7 +46,6 @@
       }
     }
   }
-
   .el-table__cell {
     padding: 2px 0;
   }
@@ -62,6 +55,9 @@
   height: 34px;
   min-height: 34px;
   padding: 2px 20px;
+  &.el-button--primary{
+    background-color: @buttonPrimaryColor;
+  }
 }
 // 输入框样式
 .el-input {

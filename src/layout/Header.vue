@@ -5,12 +5,12 @@
  -->
 <template>
   <el-header>
-    <BreadCrumb class="header-left"/>
+    <BreadCrumb class="header-left" />
     <div class="header-right">
       <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
-        <el-icon class="head-item"><full-screen @click="handleFullScreen"/></el-icon>
+        <el-icon class="head-item"><full-screen @click="handleFullScreen" /></el-icon>
       </el-tooltip>
-      <LangChange class="head-item" style="color: #fff;"/>
+      <LangChange class="head-item" style="color: #fff;" />
       <el-dropdown size="medium" @command="handleCommand">
         <div class="user-info head-item">
           <img class="user_avatar" src="@/assets/img/avatar.jpg">
@@ -43,8 +43,7 @@ const userName = userStore.getUserInfo?.name
 const state = reactive({
   isAsideMenu: true,
   isFullScreen: false,
-  switchValue: 0,
-  screenfull
+  switchValue: 0
 })
 
 // 用户操作

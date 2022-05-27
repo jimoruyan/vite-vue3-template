@@ -22,7 +22,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import Table from '@/components/Table/BaseTable.vue'
-import AddForm from './components/AddForm.vue'
+import AddForm from './common/AddForm.vue'
 import FormSearch from '@/components/Form/FormSearch.vue'
 import { formItem, tableHead } from './js/static-var'
 
