@@ -2,19 +2,19 @@
 
 ## 1.1 简介
 
-vite-vue3-template是一个管理后台系统中前端解决方案，它基于 [vue] [element-ui-plus] [vite]实现。它使用了最新的前端技术栈，动态路由，权限验证，提炼了典型的业务模型，提供了丰富的功能组件，它可以帮助你快速搭建企业级中后台产品原型。
+vite-vue3-template是一个管理后台系统中前端解决方案，它基于 [vue] [element-ui-plus] [vite]实现。它使用了最新的前端技术栈，提炼了典型的业务模型，提供了丰富的功能组件，它可以帮助你快速搭建企业级中后台产品原型。
 
 
-你需要在本地安装 [node](http://nodejs.org/) ，本项目技术栈基于[vue3] [vuex4] [vue-router4] [axios] [vite2] [element-ui-plus] [ES2015+] ，所有的请求数据都使用[Mock.js]进行模拟，提前了解和学习这些知识会对使用本项目有很大的帮助。
+你需要在本地安装 [node](http://nodejs.org/) ，本项目技术栈基于[vue3] [pinia] [vue-router4] [axios] [vite2] [element-ui-plus] [ES2015+] ，所有的请求数据都使用[Mock.js]进行模拟，提前了解和学习这些知识会对使用本项目有很大的帮助。
 
 
 
 ## 1.2 功能（正在开发中）
 
 ```bash
-- 登录 / 注销 / 用户数据加载
+- 登录 / 注销 
 
-- 权限验证 / 菜单构建 / 页面权限
+- 权限验证 / 菜单构建 / 页面权限 / 多语言 / SVG图标管理
 
 - 本地开发服务器  / 编码规范检测 / less支持
 
@@ -23,6 +23,7 @@ vite-vue3-template是一个管理后台系统中前端解决方案，它基于 [
 ## 1.3 开发
 
 ```bash
+
 // 推荐使用yarn来下载依赖及构建，yarn可以理解为npm的优化版本，如果没有安装要先安装yarn
 npm install yarn -g
 
@@ -38,13 +39,12 @@ npm install --registry=https://registry.npm.taobao.org
 // 启动服务
 yarn dev
 
-// **如果插件安装在自定义路径('yarn' 不是内部或外部命令，也不是可运行的程序)，需要配置环境变量：**
-path里面加 D:\nodejs\node_global\node_modules\yarn\bin
-
+```
 
 ## 1.4 发布
 
 ```bash
+
 // 构建测试环境
 yarn build:stage
 
@@ -83,7 +83,7 @@ yarn build:prod
 - `@/src/view/svg-icons/require-icons.js`
 - `@/src/components/MarkdownEditor/default-options.js`
 
-## 2.3 Views
+## 2.3 View
 
 在`view`文件下，代表路由的`.vue`文件都使用横线连接 (kebab-case)，代表路由的文件夹也是使用同样的规则。
 
@@ -105,8 +105,26 @@ yarn build:prod
 
 # 3 目录结构
 
+--public --资源目录，打包后不会被压缩
+--src
+  --api --平台接口
+  --assets --资源目录，打包后会压缩
+  --components --组件库
+  --hooks --常用hooks
+  --icon --icon图标集
+  --layout  --布局组件
+  --locales  --多语言
+  --router  --路由文件
+  --stoer --状态管理
+  --utils  --常用工具类
+  --view  --页面
+  --App.vue  --入口页面
+  --main.js  --入口方法
+  --.env  --项目默认配置
+  --.env.*  --对应环境的配置（会覆盖上面的.env配置）
+  
 
-# 4 Vuex配置（状态存储）
+# 4 pinia配置（状态存储）
 
 模板中预置了user与app模块存储用户、项目信息，并定义了常用的getters，如果添加新的模块可直接再modules下添加对应的文件，代码会自动批量读取。
 
@@ -147,4 +165,3 @@ yarn run build:test
 ```
 ## 7.2 构建与部署
 构建后会生成dist文件夹，部署到服务器上时，将dist全部内容部署上去，dist的名称需要根据情况修改。
-如果前端部署在tomcat下，需要web.xml文件处理404的情况，模板工程已经加了，在public/WEB-INF下
