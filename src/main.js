@@ -27,7 +27,6 @@ function bootstrap() {
   setupI18n(app)
   // 全局组件注册
   registerGlobComp(app)
-
   app.use(ElementPlus, { locale }).mount('#app')
 }
 bootstrap()

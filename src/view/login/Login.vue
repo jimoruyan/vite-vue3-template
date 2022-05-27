@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrapper">
     <el-header>
-      <LangChange/>
+      <LangChange />
     </el-header>
     <div class="login">
       <el-card class="login-center">
@@ -17,7 +17,7 @@
               prefix-icon="el-icon-user-solid"
               maxlength="32"
               :placeholder="$t('home.login.form.accountPlaceholder')"
-              clearable/>
+              clearable />
           </el-form-item>
           <el-form-item prop="pwd">
             <el-input
@@ -27,7 +27,7 @@
               show-password
               :placeholder="$t('home.login.form.passwordPlaceholder')"
               clearable
-              @keyup.enter.exact="handleLogin"/>
+              @keyup.enter.exact="handleLogin" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" style="width: 100%" :loading="loginFormState.loading" @click="handleLogin">{{$t('home.login.form.loginButtom')}}

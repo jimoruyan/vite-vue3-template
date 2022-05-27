@@ -6,23 +6,23 @@
 <template>
   <el-aside :class="state.isCollapse ? `width64` : `width200`">
     <div class="logo">
-      <img src="@/assets/img/avatar.jpg" alt="logo" draggable="false"/>
+      <img src="@/assets/img/avatar.jpg" alt="logo" draggable="false" />
     </div>
     <el-menu router unique-opened :default-active="route.path" :collapse="state.isCollapse">
       <div v-for="item in routers" :key="item.name">
         <div v-if="!item['hidden']">
           <el-sub-menu v-if="item.children && item.children.length" :index="concatPath(item.path)">
             <template #title>
-              <i :class="item.meta.icon"/>
+              <i :class="item.meta.icon" />
               <el-icon :size="20">
-                <component :is="item.meta.icon"/>
+                <component :is="item.meta.icon" />
               </el-icon>
               <span>{{ $t(item.meta.title) }}</span>
             </template>
             <div v-for="sub in item.children" :key="sub.name">
               <el-menu-item :index="concatPath(item.path, sub.path)">
                 <el-icon :size="20">
-                  <component :is="sub.meta.icon"/>
+                  <component :is="sub.meta.icon" />
                 </el-icon>
                 <template #title>{{ $t(sub.meta.title) }}</template>
               </el-menu-item>
@@ -30,7 +30,7 @@
           </el-sub-menu>
           <el-menu-item v-else :index="concatPath(item.path)">
             <el-icon :size="20">
-              <component :is="item.meta.icon"/>
+              <component :is="item.meta.icon" />
             </el-icon>
             <template #title>{{ $t(item.meta.title) }}</template>
           </el-menu-item>
@@ -39,10 +39,10 @@
     </el-menu>
     <div class="fold" @click="changeCollapse">
       <el-icon v-show="!state.isCollapse">
-        <arrow-left-bold/>
+        <arrow-left-bold />
       </el-icon>
       <el-icon v-show="state.isCollapse">
-        <arrow-right-bold/>
+        <arrow-right-bold />
       </el-icon>
     </div>
   </el-aside>
