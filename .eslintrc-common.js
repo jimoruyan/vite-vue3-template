@@ -2,7 +2,7 @@
  * @fixable 表示此配置支持 --fix
  */
 
-module.exports = {
+ module.exports = {
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module',
@@ -32,11 +32,11 @@ module.exports = {
     "vue/no-multi-spaces": ["error", {
       "ignoreProperties": false
     }],
-    // @fixable 去除标签首尾空格
+    // @fixable 去除标签手尾空格
     "vue/html-closing-bracket-spacing": ["error", {
       "startTag": "never",
       "endTag": "never",
-      "selfClosingTag": "always"
+      "selfClosingTag": "never"
     }],
     // @fixable 使用两个空格进行缩进
     'indent': [
@@ -104,6 +104,7 @@ module.exports = {
       }
     ],
     // 禁止使用 tabs
+    // 'no-tabs': 'error',
     'no-tabs': 'off',
     // @fixable 禁止行尾有空格
     'no-trailing-spaces': [

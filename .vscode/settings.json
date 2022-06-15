@@ -35,6 +35,17 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.printWidth": 200,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.useTabs": true,
+  "prettier.embeddedLanguageFormatting": "off",
   "workbench.colorTheme": "Default Dark+",
   "workbench.iconTheme": "material-icon-theme",
   "git.autofetch": true,
@@ -42,26 +53,15 @@
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "eslint.probe": ["javascript", "javascriptreact", "html", "vue", "markdown"],
   "diffEditor.ignoreTrimWhitespace": false,
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[plaintext]": {
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "editor.unicodeHighlight.invisibleCharacters": false
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "timeline.excludeSources": [
     "timeline.localHistory"
   ],
   "editor.tabSize": 2,
   "i18n-ally.extract.keyMaxLength": 2,
-  "prettier.printWidth": 200,
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "prettier.useTabs": true,
-  "prettier.embeddedLanguageFormatting": "off",
   "i18n-ally.localesPaths": ["src/locales/lang"],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.sortKeys": true,

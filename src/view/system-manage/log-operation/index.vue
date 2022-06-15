@@ -1,20 +1,20 @@
 <template>
-  <div class="role-manage">
-    <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm" />
-    <Table
-      :table-head="tableHead"
-      :table-data="tableData"
-      :operation="['view','edit','del']"
-      :total="8000"
-      :list-loading="listLoading"
-      style="height:calc(100vh - 210px);"
-      @handleView="handleView"
-      @handleEdit="handleEdit"
-      @handleDelete="handleDelete"
-      @paginationChange="paginationChange"
-    />
-    <Detail ref="DetailRef" />
-  </div>
+	<div class="role-manage">
+		<FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm"/>
+		<Table
+			:table-head="tableHead"
+			:table-data="tableData"
+			:operation="['view', 'edit', 'del']"
+			:total="8000"
+			:list-loading="listLoading"
+			style="height: calc(100vh - 210px)"
+			@handleView="handleView"
+			@handleEdit="handleEdit"
+			@handleDelete="handleDelete"
+			@paginationChange="paginationChange"
+		/>
+		<Detail ref="DetailRef"/>
+	</div>
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
@@ -81,11 +81,11 @@ function paginationChange(data) {
 }
 </script>
 <style scoped lang="less">
-.role-manage{
-  .btn-list{
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: row-reverse;
-  }
+.role-manage {
+	.btn-list {
+		margin-bottom: 10px;
+		display: flex;
+		flex-direction: row-reverse;
+	}
 }
 </style>
