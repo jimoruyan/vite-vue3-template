@@ -104,7 +104,7 @@ module.exports = {
       }
     ],
     // 禁止使用 tabs
-    'no-tabs': 'error',
+    'no-tabs': 'off',
     // @fixable 禁止行尾有空格
     'no-trailing-spaces': [
       'error',

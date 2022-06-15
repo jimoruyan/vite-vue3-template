@@ -1,4 +1,4 @@
-import  i18n  from '@/locales'
+import i18n  from '@/locales'
 
 function getKey(namespace, key) {
   if (!namespace) {

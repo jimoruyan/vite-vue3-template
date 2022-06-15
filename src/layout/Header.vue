@@ -6,14 +6,20 @@
 <template>
   <el-header>
     <BreadCrumb class="header-left" />
+    <!-- <HeadMenu /> -->
     <div class="header-right">
+      <el-tooltip content="消息">
+        <el-badge>
+          <el-icon><Bell /></el-icon>
+        </el-badge>
+      </el-tooltip>
       <el-tooltip :content="state.isFullScreen ? '退出全屏' : '全屏'">
         <el-icon class="head-item"><full-screen @click="handleFullScreen" /></el-icon>
       </el-tooltip>
       <LangChange class="head-item" style="color: #fff;" />
       <el-dropdown size="medium" @command="handleCommand">
         <div class="user-info head-item">
-          <img class="user_avatar" src="@/assets/img/avatar.jpg">
+          <img class="user_avatar" src="@/assets/img/avatar.jpg" />
           <span class="username">{{ userName }}</span>
         </div>
         <template #dropdown>
@@ -35,6 +41,7 @@ import { removeAuthed, removeToken } from '@/utils/auth'
 import BreadCrumb from '@/components/BreadCrumb/index.vue'
 import { useUserStore } from '@/store/modules/user'
 import LangChange from '@/components/Tool/LangChange.vue'
+// import HeadMenu from './HeadMenu.vue'
 
 const { proxy } = getCurrentInstance()
 const router = useRouter()
@@ -67,7 +74,6 @@ function handleFullScreen() {
     screenfull.toggle()
   }
 }
-
 </script>
 
 <style lang="less" scoped>
@@ -92,12 +98,18 @@ function handleFullScreen() {
     align-items: center;
     padding-left: 8px;
     width: auto;
-    & > i {
-      padding: 8px 6px;
-      font-size: 20px;
-      cursor: pointer;
-      margin: 0 8px;
-    }
+		:deep(.el-badge) {
+			sup {
+				top: 9px;
+				right: 24px;
+			}
+		}
+		.el-icon {
+			padding: 8px 3px;
+			font-size: 20px;
+			cursor: pointer;
+			margin: 0 8px;
+		}
     .user-info {
       margin: 0 16px;
       width: auto;
@@ -109,22 +121,11 @@ function handleFullScreen() {
         height: 30px;
         vertical-align: middle;
       }
- 
-    }
-    .lang-info{
-      height: 30px;
-      line-height: 30px;
-      cursor: pointer;
-      .lang-svg{
-        width:25px;
-        height: 25px;
+     .username {
+        margin-left: 8px;
+        vertical-align: middle;
       }
-    }
-    span.username {
-      margin-left: 8px;
-      vertical-align: middle;
     }
   }
 }
-
 </style>

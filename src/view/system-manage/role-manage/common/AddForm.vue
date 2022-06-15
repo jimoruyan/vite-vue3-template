@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-model="state.dialogVisible" :close-on-click-modal="false" :close-on-press-escape="false" destroy-on-close :title="state.title" width="50%">
+	<el-dialog v-model="state.dialogVisible" :close-on-click-modal="false" :close-on-press-escape="false" :title="state.title" destroy-on-close width="50%">
 		<Form ref="formRef" :form-data="state.formData" :form-item="state.formItem" :rules="state.rules" @submitForm="submitForm" />
 		<template #footer>
 			<span class="dialog-footer">
@@ -18,74 +18,32 @@ const state = reactive({
   dialogVisible: false,
   title: '',
   rules: {
-    name: formRules('must'),
-    phone: formRules('must'),
-    userName: formRules('must'),
-    password: formRules('must'),
-    email: formRules('must'),
-    roleId: formRules('must')
+    roleName: formRules('must'),
+    roleId: formRules('must'),
+    menu: formRules('must')
   },
   formData: {},
   formItem: [
     {
-      label: '姓名',
+      label: '角色名称',
       type: 'text',
-      value: 'name',
-      width: 12
+      value: 'roleName',
+      width: 24
     },
     {
-      label: '联系电话',
-      value: 'phone',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '用户名',
-      value: 'userName',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '密码',
-      value: 'password',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '性别',
-      value: 'sex',
-      type: 'select',
-      children: [
-        {
-          label: '男',
-          value: '1'
-        },
-        {
-          label: '女',
-          value: '2'
-        }
-      ],
-      width: 12
-    },
-    {
-      label: '身份证号',
-      value: 'idNo',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '邮箱',
-      value: 'email',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '用户角色',
-      value: 'roleId',
+      label: '菜单权限',
+      value: 'menu',
       type: 'select',
       children: [],
-      width: 12
+      width: 24
+    },
+    {
+      label: '角色描述',
+      value: 'remake',
+      type: 'text',
+      width: 24
     }
+
   ]
 })
 const formRef = ref(null)

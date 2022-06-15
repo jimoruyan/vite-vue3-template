@@ -1,7 +1,7 @@
 <template>
   <el-dropdown size="medium" @command="handleLang">
     <div class="lang-info">
-      <SvgIcon name="lang"/>
+      <SvgIcon name="lang" />
       <span class="lang-text">语言</span>
     </div>
     <template #dropdown>

@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-model="state.dialogVisible" :close-on-click-modal="false" :close-on-press-escape="false" destroy-on-close :title="state.title" width="50%">
+	<el-dialog v-model="state.dialogVisible" :close-on-click-modal="false" :close-on-press-escape="false" :title="state.title" destroy-on-close width="50%">
 		<Form ref="formRef" :form-data="state.formData" :form-item="state.formItem" :rules="state.rules" @submitForm="submitForm" />
 		<template #footer>
 			<span class="dialog-footer">
@@ -18,73 +18,37 @@ const state = reactive({
   dialogVisible: false,
   title: '',
   rules: {
-    name: formRules('must'),
-    phone: formRules('must'),
-    userName: formRules('must'),
-    password: formRules('must'),
-    email: formRules('must'),
-    roleId: formRules('must')
+    roleName: formRules('must'),
+    roleId: formRules('must'),
+    menu: formRules('must')
   },
   formData: {},
   formItem: [
     {
-      label: '姓名',
-      type: 'text',
-      value: 'name',
-      width: 12
-    },
-    {
-      label: '联系电话',
-      value: 'phone',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '用户名',
-      value: 'userName',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '密码',
-      value: 'password',
-      type: 'text',
-      width: 12
-    },
-    {
-      label: '性别',
-      value: 'sex',
+      label: '上级菜单',
       type: 'select',
-      children: [
-        {
-          label: '男',
-          value: '1'
-        },
-        {
-          label: '女',
-          value: '2'
-        }
-      ],
-      width: 12
+      value: 'parentMenu',
+      children: [],
+      width: 24
     },
     {
-      label: '身份证号',
-      value: 'idNo',
+      label: '菜单名称',
+      value: 'menuName',
       type: 'text',
-      width: 12
+      width: 24
     },
     {
-      label: '邮箱',
-      value: 'email',
+      label: '菜单路径',
+      value: 'menuPath',
       type: 'text',
-      width: 12
+      width: 24
     },
     {
-      label: '用户角色',
-      value: 'roleId',
+      label: '菜单图标',
+      value: 'menuIcon',
       type: 'select',
       children: [],
-      width: 12
+      width: 24
     }
   ]
 })

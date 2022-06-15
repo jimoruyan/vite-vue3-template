@@ -5,6 +5,7 @@ export default {
     SystemManage: 'system manage',
     UserManage: 'user manage',
     RoleManage: 'role manage',
-    MenuManage: 'menu manage'
+    MenuManage: 'menu manage',
+    LogOperation: 'log operation'
   }
 }

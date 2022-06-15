@@ -1,13 +1,4 @@
 {
-  "i18n-ally.localesPaths": ["src/locales/lang"],
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.sortKeys": true,
-  "i18n-ally.namespace": true,
-  "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
-  "i18n-ally.enabledParsers": ["js"],
-  "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.displayLanguage": "zh-CN",
-  "i18n-ally.enabledFrameworks": ["vue", "react"],
   "tabnine.experimentalAutoImports": true,
   "typescript.validate.enable": false,
   "files.associations": {
@@ -21,7 +12,7 @@
   },
   "eslint.validate": ["javascript", "typescript", "html", "vue"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
   },
   "eslint.codeAction.disableRuleComment": {},
   "eslint.alwaysShowStatus": true,
@@ -61,7 +52,23 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "timeline.excludeSources": ["timeline.localHistory"],
+  "timeline.excludeSources": [
+    "timeline.localHistory"
+  ],
   "editor.tabSize": 2,
-  "i18n-ally.extract.keyMaxLength": 2
+  "i18n-ally.extract.keyMaxLength": 2,
+  "prettier.printWidth": 200,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.useTabs": true,
+  "prettier.embeddedLanguageFormatting": "off",
+  "i18n-ally.localesPaths": ["src/locales/lang"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
+  "i18n-ally.enabledParsers": ["js"],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.enabledFrameworks": ["vue", "react"],
 }

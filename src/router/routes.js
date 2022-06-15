@@ -32,6 +32,12 @@ const layoutMap = [
         name: 'MenuManage',
         meta: { title: t('router.SystemManage.MenuManage'), icon: 'Menu' },
         component: () => import('@/view/system-manage/menu-manage/index.vue')
+      },
+      {
+        path: 'log-operation',
+        name: 'LogOperation',
+        meta: { title: t('router.SystemManage.LogOperation'), icon: 'Document' },
+        component: () => import('@/view/system-manage/log-operation/index.vue')
       }
     ]
   }

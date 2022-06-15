@@ -1,23 +1,19 @@
 <template>
   <div class="role-manage">
-    <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm"/>
-    <div class="btn-list">
-      <el-button type="primary" icon="Plus" @click="addClue">新增</el-button>
-    </div>
+    <FormSearch :form-item="formItem" :form-data="formData" @searchForm="getList" @clearForm="clearForm" />
     <Table
       :table-head="tableHead"
       :table-data="tableData"
       :operation="['view','edit','del']"
       :total="8000"
       :list-loading="listLoading"
-      style="height:calc(100vh - 250px);"
+      style="height:calc(100vh - 210px);"
       @handleView="handleView"
       @handleEdit="handleEdit"
       @handleDelete="handleDelete"
       @paginationChange="paginationChange"
     />
-    <AddForm ref="AddFormRef"/>
-    <Detail ref="DetailRef"/>
+    <Detail ref="DetailRef" />
   </div>
 </template>
 <script setup>
@@ -25,7 +21,6 @@ import { ref, reactive } from 'vue'
 import { formItem, tableHead } from './js/static-var'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import Table from '@/components/Table/BaseTable.vue'
-import AddForm from './common/AddForm.vue'
 import FormSearch from '@/components/Form/FormSearch.vue'
 import Detail from './common//Detail.vue'
 
@@ -40,18 +35,18 @@ setTimeout(() => {
   for (let i = 0; i < 20; i++) {
     tableData.push({
       index: i + 1,
-      roleName: `售前售后`,
-      roleId: '管理员',
-      remake: '这是一个管理员',
-      createTime: '2022-5-31 09:30:00',
-      creatorName: 'admin'
+      service: `alarm`,
+      model: '应急中心',
+      type: '新增',
+      description: '新增事件',
+      name: 'wcy',
+      operator: 'admin',
+      time: '2022-5-31 09:30:00'
     })
   }
   listLoading.value = false
 }, 200)
-function addClue() {
-  AddFormRef.value.open()
-}
+
 function handleView(row) {
   DetailRef.value.openDialog(row)
   console.log('查看', row)
