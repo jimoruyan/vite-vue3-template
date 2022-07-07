@@ -7,7 +7,7 @@
 			:operation="['view', 'edit', 'del']"
 			:total="8000"
 			:list-loading="listLoading"
-			style="height: calc(100vh - 210px)"
+			style="height: calc(100vh - 206px)"
 			@handleView="handleView"
 			@handleEdit="handleEdit"
 			@handleDelete="handleDelete"

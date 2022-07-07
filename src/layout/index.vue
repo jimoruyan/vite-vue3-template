@@ -12,9 +12,9 @@
         <el-main>
           <router-view/>
         </el-main>
-        <el-footer>
+        <!-- <el-footer>
           Vue3 + Element-Plus Create By Vite
-        </el-footer>
+        </el-footer> -->
       </div>
     </el-container>
   </el-container>
